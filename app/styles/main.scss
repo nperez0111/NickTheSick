@@ -5,11 +5,12 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+    margin: 0;
 }
 
 .hero-unit {
-  margin: 50px auto 0 auto;
-  width: 300px;
+  margin: 0 auto;
+  max-width: 320px;
   font-size: 18px;
   font-weight: 200;
   line-height: 30px;
@@ -20,6 +21,7 @@ body {
     font-size: 60px;
     line-height: 1;
     letter-spacing: -1px;
+      margin: 0;
   }
 }
 
@@ -28,4 +30,7 @@ body {
   background: #ccc;
   color: #000;
   padding: 0.2em 0;
+}
+.section:nth-child(2n){
+    background-color:#CCC;
 }

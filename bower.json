@@ -2,7 +2,8 @@
   "name": "nickthesick",
   "private": true,
   "dependencies": {
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "fullpage.js": "~2.6.7"
   },
   "devDependencies": {
     "chai": "~3.2.0",

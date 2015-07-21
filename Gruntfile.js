@@ -1,449 +1,425 @@
-// Generated on 2015-07-21 using generator-mobile 0.0.2
+// Generated on 2015-07-21 using
+// generator-webapp 1.0.1
 'use strict';
-var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
-var mountFolder = function (connect, dir) {
-    return connect.static(require('path').resolve(dir));
-};
 
 // # Globbing
 // for performance reasons we're only matching one level down:
 // 'test/spec/{,*/}*.js'
-// use this if you want to recursively match all subfolders:
+// If you want to recursively match all subfolders, use:
 // 'test/spec/**/*.js'
 
 module.exports = function (grunt) {
-    // show elapsed time at the end
-    require('time-grunt')(grunt);
-    // load all grunt tasks
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    // configurable paths
-    var yeomanConfig = {
-        app: 'app',
-        dist: 'dist'
-    };
+  // Time how long tasks take. Can help when optimizing build times
+  require('time-grunt')(grunt);
 
-    grunt.initConfig({
-        yeoman: yeomanConfig,
-        // TODO: Make this conditional
-        watch: {
-            coffee: {
-                files: ['<%= yeoman.app %>/scripts/{,*/}*.coffee'],
-                tasks: ['coffee:dist']
-            },
-            coffeeTest: {
-                files: ['test/spec/{,*/}*.coffee'],
-                tasks: ['coffee:test']
-            },
-            compass: {
-                files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-                tasks: ['compass:server']
-            },
-            livereload: {
-                options: {
-                    livereload: LIVERELOAD_PORT
-                },
-                files: [
-                    '<%= yeoman.app %>/*.html',
-                    '{.tmp,<%= yeoman.app %>}/styles/{,*/}*.css',
-                    '{.tmp,<%= yeoman.app %>}/scripts/{,*/}*.js',
-                    '<%= yeoman.app %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-                ]
-            },
-        },
-        autoshot: {
-            default_options: {
-              options: {
-                // necessary config
-                path: 'screenshots/',
-                filename: '',
-                type: 'PNG',
-                // optional config, must set either remote or local
-                remote: 'http://localhost:<%= connect.options.port %>',
-                viewport: ['320x480','480x320','384x640','640x384','602x963','963x602','600x960','960x600','800x1280','1280x800','768x1024','1024x768']
-              },
-            },
-          },
-        
-        responsive_images: {
-            dev: {
-                options: {
-                    sizes: [
-                        {
-                            width: 320,
-                        },
-                        {
-                            width: 640
-                        },
-                        {
-                            width: 1024
-                        }
-                    ]
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/images',
-                    src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
-                }]
+  // Automatically load required grunt tasks
+  require('jit-grunt')(grunt, {
+      useminPrepare: 'grunt-usemin'
+  });
+
+  // Configurable paths
+  var config = {
+    app: 'app',
+    dist: 'dist'
+  };
+
+  // Define the configuration for all the tasks
+  grunt.initConfig({
+
+    // Project settings
+    config: config,
+
+    // Watches files for changes and runs tasks based on the changed files
+    watch: {
+      bower: {
+        files: ['bower.json'],
+        tasks: ['wiredep']
+      },
+      babel: {
+        files: ['<%= config.app %>/scripts/{,*/}*.js'],
+        tasks: ['babel:dist']
+      },
+      babelTest: {
+        files: ['test/spec/{,*/}*.js'],
+        tasks: ['babel:test', 'test:watch']
+      },
+      gruntfile: {
+        files: ['Gruntfile.js']
+      },
+      sass: {
+        files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        tasks: ['sass:server', 'postcss']
+      },
+      styles: {
+        files: ['<%= config.app %>/styles/{,*/}*.css'],
+        tasks: ['newer:copy:styles', 'postcss']
+      }
+    },
+
+    browserSync: {
+      options: {
+        notify: false,
+        background: true
+      },
+      livereload: {
+        options: {
+          files: [
+            '<%= config.app %>/{,*/}*.html',
+            '<%= config.app %>/styles/{,*/}*.css',
+            '<%= config.app %>/images/{,*/}*',
+            '<%= config.app %>/scripts/{,*/}*.js'
+          ],
+          port: 9000,
+          server: {
+            baseDir: [ config.app],
+            routes: {
+              '/bower_components': './bower_components'
             }
-        },
-        connect: {
-            options: {
-                port: 9000,
-                // change this to '0.0.0.0' to access the server from outside
-                hostname: 'localhost'
-            },
-            livereload: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            lrSnippet,
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, yeomanConfig.app)
-                        ];
-                    }
-                }
-            },
-            test: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, '.tmp'),
-                            mountFolder(connect, 'test')
-                        ];
-                    }
-                }
-            },
-            dist: {
-                options: {
-                    middleware: function (connect) {
-                        return [
-                            mountFolder(connect, yeomanConfig.dist)
-                        ];
-                    }
-                }
-            }
-        },
-        open: {
-            server: {
-                path: 'http://localhost:<%= connect.options.port %>'
-            }
-
-            ,
-            nexus4:{
-                path: 'http://www.browserstack.com/start#os=android&os_version=4.2&device=LG+Nexus+4&speed=1&start=true&url=http://rnikitin.github.io/examples/jumbotron/'
-            },
-            nexus7:{
-                path: 'http://www.browserstack.com/start#os=android&os_version=4.1&device=Google+Nexus+7&speed=1&start=true&url=http://rnikitin.github.io/examples/jumbotron/'
-            },
-            iphone5:{
-                path: 'http://www.browserstack.com/start#os=ios&os_version=6.0&device=iPhone+5&speed=1&start=true&url=http://rnikitin.github.io/examples/jumbotron/'
-            }
-
-        },
-        clean: {
-            dist: {
-                files: [{
-                    dot: true,
-                    src: [
-                        '.tmp',
-                        '<%= yeoman.dist %>/*',
-                        '!<%= yeoman.dist %>/.git*'
-                    ]
-                }]
-            },
-            server: '.tmp'
-        },
-        jshint: {
-            options: {
-                jshintrc: '.jshintrc'
-            },
-            all: [
-                'Gruntfile.js',
-                '<%= yeoman.app %>/scripts/{,*/}*.js',
-                '!<%= yeoman.app %>/scripts/vendor/*',
-                'test/spec/{,*/}*.js'
-            ]
-        },
-        mocha: {
-            all: {
-                options: {
-                    run: true,
-                    urls: ['http://localhost:<%= connect.options.port %>/index.html']
-                }
-            }
-        },
-        coffee: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/scripts',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/scripts',
-                    ext: '.js'
-                }]
-            },
-            test: {
-                files: [{
-                    expand: true,
-                    cwd: 'test/spec',
-                    src: '{,*/}*.coffee',
-                    dest: '.tmp/spec',
-                    ext: '.js'
-                }]
-            }
-        },
-        compass: {
-            options: {
-                sassDir: '<%= yeoman.app %>/styles',
-                cssDir: '.tmp/styles',
-                generatedImagesDir: '.tmp/images/generated',
-                imagesDir: '<%= yeoman.app %>/images',
-                javascriptsDir: '<%= yeoman.app %>/scripts',
-                /*fontsDir: '<%= yeoman.app %>/styles/fonts',*/
-                importPath: '<%= yeoman.app %>/bower_components',
-                httpImagesPath: '/images',
-                httpGeneratedImagesPath: '/images/generated',
-                httpFontsPath: '/styles/fonts',
-                relativeAssets: false
-            },
-            dist: {},
-            server: {
-                options: {
-                    debugInfo: true
-                }
-            }
-        },
-        // not used since Uglify task does concat,
-        // but still available if needed
-        /*concat: {
-            dist: {}
-        },*/
-        // not enabled since usemin task does concat and uglify
-        // check index.html to edit your build targets
-        // enable this task if you prefer defining your build targets here
-        /*uglify: {
-            dist: {}
-        },*/
-        rev: {
-            dist: {
-                files: {
-                    src: [
-                        '<%= yeoman.dist %>/scripts/{,*/}*.js',
-                        '<%= yeoman.dist %>/styles/{,*/}*.css',
-                        '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
-                        '<%= yeoman.dist %>/styles/fonts/*'
-                    ]
-                }
-            }
-        },
-
-        
-        modernizr: {
-
-            // Path to the build you're using for development.
-            "devFile" : "<%= yeoman.app %>/bower_components/modernizr/modernizr.js",
-
-            // Path to save out the built file.
-            "outputFile" : "<%= yeoman.dist %>/scripts/modernizr.js",
-
-            // Based on default settings on http://modernizr.com/download/
-            "extra" : {
-                "shiv" : true,
-                "printshiv" : false,
-                "load" : true,
-                "mq" : false,
-                "cssclasses" : true
-            },
-
-            // Based on default settings on http://modernizr.com/download/
-            "extensibility" : {
-                "addtest" : false,
-                "prefixed" : false,
-                "teststyles" : false,
-                "testprops" : false,
-                "testallprops" : false,
-                "hasevents" : false,
-                "prefixes" : false,
-                "domprefixes" : false
-            },
-
-            // By default, source is uglified before saving
-            "uglify" : true,
-
-            // Define any tests you want to impliticly include.
-            "tests" : [],
-
-            // By default, this task will crawl your project for references to Modernizr tests.
-            // Set to false to disable.
-            "parseFiles" : true,
-
-            // When parseFiles = true, this task will crawl all *.js, *.css, *.scss files, except files that are in node_modules/.
-            // You can override this by defining a "files" array below.
-            // "files" : [],
-
-            // When parseFiles = true, matchCommunityTests = true will attempt to
-            // match user-contributed tests.
-            "matchCommunityTests" : false,
-
-            // Have custom Modernizr tests? Add paths to their location here.
-            "customTests" : []
-        },
-
-        useminPrepare: {
-            options: {
-                dest: '<%= yeoman.dist %>'
-            },
-            html: '<%= yeoman.app %>/index.html'
-        },
-        usemin: {
-            options: {
-                dirs: ['<%= yeoman.dist %>']
-            },
-            html: ['<%= yeoman.dist %>/{,*/}*.html'],
-            css: ['<%= yeoman.dist %>/styles/{,*/}*.css']
-        },
-        imagemin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/images',
-                    src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: '<%= yeoman.dist %>/images'
-                }]
-            }
-        },
-        svgmin: {
-            dist: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>/images',
-                    src: '{,*/}*.svg',
-                    dest: '<%= yeoman.dist %>/images'
-                }]
-            }
-        },
-        cssmin: {
-            dist: {
-                files: {
-                    '<%= yeoman.dist %>/styles/main.css': [
-                        '.tmp/styles/{,*/}*.css',
-                        '<%= yeoman.app %>/styles/{,*/}*.css'
-                    ]
-                }
-            }
-        },
-        htmlmin: {
-            dist: {
-                options: {
-                    /*removeCommentsFromCDATA: true,
-                    // https://github.com/yeoman/grunt-usemin/issues/44
-                    //collapseWhitespace: true,
-                    collapseBooleanAttributes: true,
-                    removeAttributeQuotes: true,
-                    removeRedundantAttributes: true,
-                    useShortDoctype: true,
-                    removeEmptyAttributes: true,
-                    removeOptionalTags: true*/
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= yeoman.app %>',
-                    src: '*.html',
-                    dest: '<%= yeoman.dist %>'
-                }]
-            }
-        },
-        // Put files not handled in other tasks here
-        copy: {
-            dist: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    cwd: '<%= yeoman.app %>',
-                    dest: '<%= yeoman.dist %>',
-                    src: [
-                        '*.{ico,png,txt}',
-                        '.htaccess',
-                        'images/{,*/}*.{webp,gif}',
-                        'styles/fonts/*'
-                    ]
-                }, {
-                    expand: true,
-                    cwd: '.tmp/images',
-                    dest: '<%= yeoman.dist %>/images',
-                    src: [
-                        'generated/*'
-                    ]
-                }]
-            }
-        },
-        concurrent: {
-            server: [
-                'coffee:dist',
-                'compass:server'
-            ],
-            test: [
-                'coffee',
-                'compass'
-            ],
-            dist: [
-                'coffee',
-                'compass:dist',
-                'imagemin',
-                'svgmin',
-                'htmlmin'
-            ]
+          }
         }
-    });
-
-    grunt.registerTask('server', function (target) {
-        if (target === 'dist') {
-            return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+      },
+      test: {
+        options: {
+          port: 9001,
+          open: false,
+          logLevel: 'silent',
+          host: 'localhost',
+          server: {
+            baseDir: ['./test', config.app],
+            routes: {
+              '/bower_components': './bower_components'
+            }
+          }
         }
+      },
+      dist: {
+        options: {
+          background: false,
+          server: '<%= config.dist %>'
+        }
+      }
+    },
 
-        grunt.task.run([
-            'clean:server',
-            'concurrent:server',
-            'connect:livereload',
-            'open:server',
-            'watch'
-        ]);
-    });
+    // Empties folders to start fresh
+    clean: {
+      dist: {
+        files: [{
+          dot: true,
+          src: [
+            '.tmp',
+            '<%= config.dist %>/*',
+            '!<%= config.dist %>/.git*'
+          ]
+        }]
+      },
+      server: '.tmp'
+    },
 
-    grunt.registerTask('test', [
+    // Make sure code styles are up to par and there are no obvious mistakes
+    eslint: {
+      target: [
+        'Gruntfile.js',
+        '<%= config.app %>/scripts/{,*/}*.js',
+        '!<%= config.app %>/scripts/vendor/*',
+        'test/spec/{,*/}*.js'
+      ]
+    },
+
+    // Mocha testing framework configuration options
+    mocha: {
+      all: {
+        options: {
+          run: true,
+          urls: ['http://<%= browserSync.test.options.host %>:<%= browserSync.test.options.port %>/index.html']
+        }
+      }
+    },
+
+    // Compiles ES6 with Babel
+    babel: {
+      options: {
+          sourceMap: true
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/scripts',
+          src: '{,*/}*.js',
+          dest: '<%= config.app %>/scripts',
+          ext: '.js'
+        }]
+      },
+      test: {
+        files: [{
+          expand: true,
+          cwd: 'test/spec',
+          src: '{,*/}*.js',
+          dest: '<%= config.app %>/spec',
+          ext: '.js'
+        }]
+      }
+    },
+
+    // Compiles Sass to CSS and generates necessary files if requested
+    sass: {
+      options: {
+        sourceMap: true,
+        sourceMapEmbed: true,
+        sourceMapContents: true,
+        includePaths: ['.']
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/styles',
+          src: ['*.{scss,sass}'],
+          dest: '<%= config.app %>/styles',
+          ext: '.css'
+        }]
+      },
+      server: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/styles',
+          src: ['*.{scss,sass}'],
+          dest: '<%= config.app %>/styles',
+          ext: '.css'
+        }]
+      }
+    },
+
+    postcss: {
+      options: {
+        map: true,
+        processors: [
+          // Add vendor prefixed styles
+          require('autoprefixer-core')({
+            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+          })
+        ]
+      },
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '.tmp/styles/',
+          src: '{,*/}*.css',
+          dest: '.tmp/styles/'
+        }]
+      }
+    },
+
+    // Automatically inject Bower components into the HTML file
+    wiredep: {
+      app: {
+        src: ['<%= config.app %>/index.html'],
+        ignorePath: /^(\.\.\/)*\.\./
+      },
+      sass: {
+        src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
+        ignorePath: /^(\.\.\/)+/
+      }
+    },
+
+    // Renames files for browser caching purposes
+    filerev: {
+      dist: {
+        src: [
+          '<%= config.dist %>/scripts/{,*/}*.js',
+          '<%= config.dist %>/styles/{,*/}*.css',
+          '<%= config.dist %>/images/{,*/}*.*',
+          '<%= config.dist %>/styles/fonts/{,*/}*.*',
+          '<%= config.dist %>/*.{ico,png}'
+        ]
+      }
+    },
+
+    // Reads HTML for usemin blocks to enable smart builds that automatically
+    // concat, minify and revision files. Creates configurations in memory so
+    // additional tasks can operate on them
+    useminPrepare: {
+      options: {
+        dest: '<%= config.dist %>'
+      },
+      html: '<%= config.app %>/index.html'
+    },
+
+    // Performs rewrites based on rev and the useminPrepare configuration
+    usemin: {
+      options: {
+        assetsDirs: [
+          '<%= config.dist %>',
+          '<%= config.dist %>/images',
+          '<%= config.dist %>/styles'
+        ]
+      },
+      html: ['<%= config.dist %>/{,*/}*.html'],
+      css: ['<%= config.dist %>/styles/{,*/}*.css']
+    },
+
+    // The following *-min tasks produce minified files in the dist folder
+    imagemin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images',
+          src: '{,*/}*.{gif,jpeg,jpg,png}',
+          dest: '<%= config.dist %>/images'
+        }]
+      }
+    },
+
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= config.app %>/images',
+          src: '{,*/}*.svg',
+          dest: '<%= config.dist %>/images'
+        }]
+      }
+    },
+
+    htmlmin: {
+      dist: {
+        options: {
+          collapseBooleanAttributes: true,
+          collapseWhitespace: true,
+          conservativeCollapse: true,
+          removeAttributeQuotes: true,
+          removeCommentsFromCDATA: true,
+          removeEmptyAttributes: true,
+          removeOptionalTags: true,
+          // true would impact styles with attribute selectors
+          removeRedundantAttributes: false,
+          useShortDoctype: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= config.dist %>',
+          src: '{,*/}*.html',
+          dest: '<%= config.dist %>'
+        }]
+      }
+    },
+
+    // By default, your `index.html`'s <!-- Usemin block --> will take care
+    // of minification. These next options are pre-configured if you do not
+    // wish to use the Usemin blocks.
+    // cssmin: {
+    //   dist: {
+    //     files: {
+    //       '<%= config.dist %>/styles/main.css': [
+    //         '.tmp/styles/{,*/}*.css',
+    //         '<%= config.app %>/styles/{,*/}*.css'
+    //       ]
+    //     }
+    //   }
+    // },
+    // uglify: {
+    //   dist: {
+    //     files: {
+    //       '<%= config.dist %>/scripts/scripts.js': [
+    //         '<%= config.dist %>/scripts/scripts.js'
+    //       ]
+    //     }
+    //   }
+    // },
+    // concat: {
+    //   dist: {}
+    // },
+
+    // Copies remaining files to places other tasks can use
+    copy: {
+      dist: {
+        files: [{
+          expand: true,
+          dot: true,
+          cwd: '<%= config.app %>',
+          dest: '<%= config.dist %>',
+          src: [
+            '*.{ico,png,txt}',
+            'images/{,*/}*.webp',
+            '{,*/}*.html',
+            'styles/fonts/{,*/}*.*'
+          ]
+        }]
+      }
+    },
+
+    // Run some tasks in parallel to speed up build process
+    concurrent: {
+      server: [
+        'babel:dist',
+        'sass:server'
+      ],
+      test: [
+        'babel'
+      ],
+      dist: [
+        'babel',
+        'sass',
+        'imagemin',
+        'svgmin'
+      ]
+    }
+  });
+
+
+  grunt.registerTask('serve', 'start the server and preview your app', function (target) {
+
+    if (target === 'dist') {
+      return grunt.task.run(['build', 'browserSync:dist']);
+    }
+
+    grunt.task.run([
+      'clean:server',
+      'wiredep',
+      'concurrent:server',
+      'postcss',
+      'browserSync:livereload',
+      'watch'
+    ]);
+  });
+
+  grunt.registerTask('server', function (target) {
+    grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+    grunt.task.run([target ? ('serve:' + target) : 'serve']);
+  });
+
+  grunt.registerTask('test', function (target) {
+    if (target !== 'watch') {
+      grunt.task.run([
         'clean:server',
         'concurrent:test',
-        'connect:test',
-        'mocha'
-    ]);
+        'postcss'
+      ]);
+    }
 
-    grunt.registerTask('build', [
-        'clean:dist',
-        'useminPrepare',
-        'concurrent:dist',
-        'cssmin',
-        'responsive_images:dev',
-        'concat',
-        'uglify',
-        'copy',
-        'rev',
-        'usemin'
+    grunt.task.run([
+      'browserSync:test',
+      'mocha'
     ]);
+  });
 
-    grunt.registerTask('default', [
-        'jshint',
-        'test',
-        'build'
-    ]);
-    
-    grunt.registerTask('screenshots', [
-        'clean:server',
-        'concurrent:server',
-        'connect:livereload',
-        'autoshot'
-    ]);
-    
+  grunt.registerTask('build', [
+    'clean:dist',
+    'wiredep',
+    'useminPrepare',
+    'concurrent:dist',
+    'postcss',
+    'concat',
+    'cssmin',
+    'uglify',
+    'copy:dist',
+    'filerev',
+    'usemin',
+    'htmlmin'
+  ]);
+
+  grunt.registerTask('default', [
+    'newer:eslint',
+    'test',
+    'build'
+  ]);
 };

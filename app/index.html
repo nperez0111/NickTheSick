@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Nick The Sick</title>
     <meta name="description" content="">
@@ -13,35 +14,61 @@
     <!-- build:css(.) styles/vendor.css -->
     <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.scss">
     <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-  </head>
-  <body>
+</head>
+
+<body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+    <nav id="menu">
+        <ul>
+          <li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
+          <li data-menuanchor="Page2"><a href="#Page2">Page 2</a></li>
+          <li data-menuanchor="Page3"><a href="#Page3">Page 3</a></li>
+          <li data-menuanchor="Page4"><a href="#Page4">Page 4</a></li>
+        </ul>
+      </nav>
 
-    
     <div id="fullpage">
-    <div class="section"><div class="hero-unit"><h1>Welcome to Nick The Sick's Portfolio</h1></div></div>
-    <div class="section"><div class="hero-unit"><h1>Second Page</h1></div></div>
-    <div class="section">Some section</div>
-    <div class="section">Some section</div>
-</div>
-    
+        <div class="section">
+            <div class="hero-unit">
+                <h1>Welcome to Nick The Sick's Portfolio</h1>
+            </div>
+        </div>
+        <div class="section">
+            <div class="hero-unit">
+                <h1>This will be the most awesome Second Page ever</h1>
+            </div>
+        </div>
+        <div class="section">
+            <div class="hero-unit">
+                <h1>But not as great as this one!!!</h1>
+            </div>
+        </div>
+        <div class="section">
+            <div class="hero-unit">
+                <h1>&& this.page > _All_Others</h1>
+            </div>
+        </div>
+    </div>
+
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <script src="/bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <script src="/bower_components/fullpage.js/vendors/jquery.easings.min.js"></script>
     <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    
+
 
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
@@ -49,12 +76,21 @@
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
+        (function (b, o, i, l, e, r) {
+            b.GoogleAnalyticsObject = l;
+            b[l] || (b[l] =
+                function () {
+                    (b[l].q = b[l].q || []).push(arguments)
+                });
+            b[l].l = +new Date;
+            e = o.createElement(i);
+            r = o.getElementsByTagName(i)[0];
+            e.src = 'https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e, r)
+        }(window, document, 'script', 'ga'));
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
     </script>
-  </body>
+</body>
+
 </html>

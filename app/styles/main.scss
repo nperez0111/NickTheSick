@@ -1,6 +1,7 @@
 // bower:scss
 @import "bower_components/fullpage.js/jquery.fullPage.scss";
 // endbower
+@import url(http://fonts.googleapis.com/css?family=Roboto);
 body {
     background: #fafafa;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -19,6 +20,9 @@ body {
     
     border-radius: 6px;
     h1 {
+        font-family: Roboto, "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+
+
         font-size: 60px;
         line-height: 1;
         letter-spacing: -1px;
@@ -50,8 +54,8 @@ body {
 nav {
     position: fixed;
     z-index: 99999;
-    top: 0;
-    left: 0;
+    top: 1em;
+    left:1em;
     ul {
         list-style: none;
         padding: 0;
@@ -59,6 +63,10 @@ nav {
         display: block;
         li {
             display: inline-block;
+            background-color:rgba(28, 205, 255,0.75);
+            border-radius: 3px;
+            margin-left:5px;
+            padding: 5px;
             &.active a {
                 padding-bottom: 2px;
                 border-bottom: 3px solid #FFF;

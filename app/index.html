@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css(.) styles/vendor.css -->
-    <link rel="stylesheet" href="/bower_components/fullpage.js/jquery.fullPage.scss">
+    <link rel="stylesheet" href="../bower_components/fullpage.js/jquery.fullPage.css">
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
@@ -24,15 +24,15 @@
 <body>
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]
+    <![endif]-->
     <nav id="menu">
         <ul>
-          <li data-menuanchor="Page1" class="active"><a href="#Page1">Home</a></li>
+          <li data-menuanchor="Welcome" class="active"><a href="#Welcome">Home</a></li>
           <li data-menuanchor="Page2"><a href="#Page2">Page 2</a></li>
           <li data-menuanchor="Page3"><a href="#Page3">Page 3</a></li>
-          <li data-menuanchor="Page4"><a href="#Page4">Page 4</a></li>
+          <li data-menuanchor="Work"><a href="#Work">My Work</a></li>
         </ul>
-      </nav>-->
+      </nav>
 
     <div id="fullpage">
         <div class="section">
@@ -51,8 +51,84 @@
             </div>
         </div>
         <div class="section">
+           <div class="slide" data-anchor="Work">
             <div class="hero-unit">
-                <h1>&& this.page > _All_Others</h1>
+                <h1>My Work</h1>
+                <section>
+                    <p>
+                        Next slide.
+                    </p>                    
+                </section>
+            </div>
+            </div>
+            <div class="slide" data-anchor="Hal">
+                <div class="web-unit">
+                        <figure>
+                            <a href="http://halmiles.com">
+                                 <picture>
+                                  <source srcset="images/halBig.png" media="(min-width: 1000px)">
+                                  <source srcset="images/halMed.png" media="(min-width: 800px)">
+                                  <img srcset="images/halSmall.png" alt="…">
+                                </picture>
+                                </a>
+                            <figcaption>
+                                <h2>Hal Miles Portfolio</h2>
+                                <p>The Hal Miles portfolio site was a "revamp" of his existing site that implemented flash, therefore it needed to be redone in order to be compatible with mobile devices. He wanted no changes to the design and for everything to work exactly the same as the original site, so I recreated the site using modern HTML5 and CSS3. From this site I learned that: Some people don't want or need new and "pretty" designs, some of the HTML5 video API and creating the best out of things by attempting to implement very semantic HTML.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+            </div>
+            <div class="slide" data-anchor="BlueMess">
+                <div class="web-unit">
+                        <figure>
+                            <a href="https://github.com/nperez0111/BlueMessProductions">
+                                <picture>
+                                  <source srcset="images/large.jpg" media="(min-width: 1000px)">
+                                  <source srcset="images/medium.jpg" media="(min-width: 800px)">
+                                  <img srcset="images/small.jpg" alt="…">
+                                </picture>
+                            </a>
+                            <figcaption>
+                                <h2>BlueMess Productions</h2>
+                                <p>I was tasked in creating the BlueMess Productions website based upon a designer's PSD. I successfully created the site which taught me: how to stay within guidelines of a format, javascript for the album music player and that just because you made a site for someone it doesn't mean they will pay for the hosting after a year.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+            </div>
+            <div class="slide" data-anchor="SAS">
+                <div class="web-unit">
+                        <figure>
+                            <a href="http://sas.nickthesick.com/">
+                                <picture>
+                                  <source srcset="images/sasBig.jpg" media="(min-width: 1000px)">
+                                  <source srcset="images/sasMed.jpg" media="(min-width: 800px)">
+                                  <img srcset="images/sasSmall.jpg" alt="…">
+                                </picture>
+                            </a>
+                            <figcaption>
+                                <h2>SAS Webapp</h2>
+                                <p>I made the SAS Dual-Enrollment Course finder that greatly simplifies the proccess of choosing dual enrollment courses within Miami Dade College. This web-app makes heavy usage of JavaScript and communicates with a database that stores every course's information. This web-app taught me so much including but not limited to PHP, MySql databases, parsing of another site in order to scrape the course information and some design principles.</p>
+                            </figcaption>
+                        </figure>
+                    </div>
+            </div>
+            <div class="slide" data-anchor="Onswee">
+                <div class="web-unit">
+                        <figure>
+                            <a href="http://onswee.nickthesick.com/">
+                                <picture>
+                                  <source srcset="images/onsweeBig.png" media="(min-width: 1000px)">
+                                  <source srcset="images/onsweeMed.png" media="(min-width: 800px)">
+                                  <img srcset="images/onsweeSmall.png" alt="…">
+                                </picture>
+                            </a>
+                            <figcaption>
+                                <h2>Onswee</h2>
+                                <p>This is a game I wrote using HTML5 JavaScript and CSS that is similar to Tic Tac Toe but you are able to move your pieces. I had to design the entire SPA web-app and all of the game logic implemented into an AI to play against. This taught me several concepts in JavaScript such as objects and classing within JavaScript, array manipulation and AI Logic.
+                                </p>
+                            </figcaption>
+                        </figure>
+                    </div>
             </div>
         </div>
     </div>
@@ -60,9 +136,10 @@
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/fullpage.js/jquery.fullPage.js"></script>
-    <script src="/bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/fullpage.js/jquery.fullPage.js"></script>
+    <script src="bower_components/fullpage.js/vendors/jquery.slimscroll.min.js"></script>
+    <script src="bower_components/picturefill/dist/picturefill.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 

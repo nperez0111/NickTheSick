@@ -4,25 +4,39 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto);
 body {
     background: #fafafa;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: Roboto, "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
     color: #333;
     margin: 0;
 }
 
+$lightblue:rgb(0, 180, 220);
+$grey:#333;
+
+@mixin bp($point) {
+  @if $point == big {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == med {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == small {
+    @media (max-width: 600px)  { @content; }
+  }
+    @else if $point == xsmall {
+    @media (max-width: 320px)  { @content; }
+  }
+}
+
 .hero-unit {
     margin: 0 auto;
-    max-width: 600px;
+    max-width: 960px;
     font-size: 18px;
     font-weight: 200;
     line-height: 30px;
     text-align: center;
     /*background-color: #eee;*/
-    
     border-radius: 6px;
     h1 {
-        font-family: Roboto, "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
-
-
         font-size: 60px;
         line-height: 1;
         letter-spacing: -1px;
@@ -38,43 +52,129 @@ body {
 }
 
 .section:nth-child(2n) {
-    background-color: rgb(28, 205, 255);
+    background-color: $lightblue;
     .hero-unit {
-        color: #444;
+        color: $grey;
     }
 }
 
 .section:nth-child(2n+1) {
-    background-color: #444;
+    background-color: $grey;
     .hero-unit {
-        color: rgb(28, 205, 255);
+        color: $lightblue;
     }
 }
 
 nav {
     position: fixed;
     z-index: 99999;
-    top: 1em;
-    left:1em;
+    top: 0;
+    left:0;
+    box-sizing:border-box;
+    
+    @include bp(small){
+    width:100%;
+    }
+    
     ul {
         list-style: none;
         padding: 0;
         margin: 0;
-        display: block;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        @include bp(small){
+        justify-content: space-around;
+        }
         li {
-            display: inline-block;
-            background-color:rgba(28, 205, 255,0.75);
+            transition: .4s all ease;
+            display: inline-flex;
+            background-color:$lightblue;
             border-radius: 3px;
             margin-left:5px;
-            padding: 5px;
-            &.active a {
-                padding-bottom: 2px;
-                border-bottom: 3px solid #FFF;
+            margin-top: 5px;
+            padding: 8px;
+            text-shadow: -1px -1px $grey;
+            @include bp(small){
+            padding-top:0px;
+                padding-bottom: 0px;
+                margin:0;
+            }
+            
+            &:hover:not(.active){
+                background-color:$grey;
+            }
+            
+            &.active {
+                
+                a {
+                    padding-bottom: 2px;
+                    border-bottom: 4px solid #FFF;
+                }
+                &:hover{
+                    border-bottom: 4px solid #fff;
+                }
             }
             a {
                 font-weight: 600;
                 color: #FFF;
                 text-decoration: none;
+            }
+        }
+    }
+}
+.web-unit{
+    max-width:960px;
+    margin:0 auto;
+    box-sizing: border-box;
+    width:100%;
+    @include bp(med){
+        width:80%;
+    }
+    @include bp(small){
+    width:100%
+    }
+    
+    figure{
+        background-color:white;
+        color:$grey;
+        border-radius: 10px;
+        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.5);
+        margin-top:30px;
+        margin-bottom: 30px;
+        a{
+            border:0;
+            img{
+                width:100%;
+                margin:0 auto;
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+                box-shadow:0 2px 4px rgba(0,0,0,.5);
+                cursor: pointer;
+                position: relative;
+                transition: .4s all ease;
+                top:0;
+                
+                &:hover{
+                    top:-8px;
+                    @include bp(small){
+                    top:8px;
+                    }
+                }
+                
+            }
+        }
+        figcaption{
+            padding:20px;
+            @include bp(small){padding: 5%;}
+            h2{
+            text-decoration: underline;
+                text-align: center;
+            }
+            p{
+                text-align: justify;
+                padding:0;
+                margin:0;
             }
         }
     }

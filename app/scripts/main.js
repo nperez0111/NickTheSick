@@ -7,7 +7,7 @@ $(document).ready(function () {
         menu: '#menu',
         navigation: false,
         scrollOverflow: true,
-        loopTop: true
+        /*//*/loopTop: true
 
     });
 });
@@ -43,6 +43,18 @@ $(document).ready(function () {
 //# sourceMappingURL=main.js.map
 //navigationTooltips: ['Page1', 'Page2', 'Page3', 'Page4'],
 //showActiveTooltip: true,
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map

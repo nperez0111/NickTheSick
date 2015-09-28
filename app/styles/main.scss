@@ -1,30 +1,60 @@
 // bower:scss
 @import "bower_components/fullpage.js/jquery.fullPage.scss";
 // endbower
-@import url(http://fonts.googleapis.com/css?family=Roboto);
+@font-face {
+    font-family: "San Francisco";
+    font-weight: normal;
+    src: url("../fonts/System%20San%20Francisco%20Display%20Regular.ttf");
+}
+
 body {
     background: #fafafa;
-    font-family: Roboto, "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
+    font-family: "San Francisco", "Segoe UI", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans-serif;
     color: #333;
     margin: 0;
 }
 
-$lightblue:rgb(0, 180, 220);
-$grey:#333;
+p {
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+$oddBg:#0D47A1; //#006599;
+$evenBg:grayscale($oddBg);
+$headerColor:#FFF;
+$subHeaderColor:#222;
 
 @mixin bp($point) {
-  @if $point == big {
-    @media (max-width: 1600px) { @content; }
-  }
-  @else if $point == med {
-    @media (max-width: 1250px) { @content; }
-  }
-  @else if $point == small {
-    @media (max-width: 600px)  { @content; }
-  }
-    @else if $point == xsmall {
-    @media (max-width: 320px)  { @content; }
-  }
+    @if $point==big {
+        @media (max-width: 1600px) {
+            @content;
+        }
+    }
+    @else if $point==med {
+        @media (max-width: 1250px) {
+            @content;
+        }
+    }
+    @else if $point==small {
+        @media (max-width: 600px) {
+            @content;
+        }
+    }
+    @else if $point==xsmall {
+        @media (max-width: 320px) {
+            @content;
+        }
+    }
+}
+
+@include bp(small) {
+    .fp-controlArrow {
+        &.fp-prev {
+            left: 3px !important;
+        }
+        &.fp-next {
+            right: 3px !important;
+        }
+    }
 }
 
 .hero-unit {
@@ -39,8 +69,9 @@ $grey:#333;
     h1 {
         font-size: 60px;
         line-height: 1;
-        letter-spacing: -1px;
         margin: 0;
+        color: $headerColor;
+        //text-shadow: -2px 2px 2px darken($grey,10);
     }
 }
 
@@ -50,32 +81,42 @@ $grey:#333;
     color: #000;
     padding: 0.2em 0;
 }
+.section{
 
-.section:nth-child(2n) {
-    background-color: $lightblue;
+    
+    //background-image: url("../images/sbg.png");
+    background-size: auto;
+    background-repeat: repeat;
+    transition: 1s all ease;
+    &:nth-child(2n){
+        background-color: $oddBg;
+        &.active{
+            background-color: $evenBg;
+        }
+    }
+    
+    &:nth-child(2n+1){
+        background-color: $evenBg;
+        &.active{
+            background-color: $oddBg;
+        }
+    }
+    
     .hero-unit {
-        color: $grey;
+        color: $headerColor;
     }
 }
 
-.section:nth-child(2n+1) {
-    background-color: $grey;
-    .hero-unit {
-        color: $lightblue;
-    }
-}
 
 nav {
     position: fixed;
     z-index: 99999;
     top: 0;
-    left:0;
-    box-sizing:border-box;
-    
-    @include bp(small){
-    width:100%;
+    left: 0;
+    box-sizing: border-box;
+    @include bp(small) {
+        width: 100%;
     }
-    
     ul {
         list-style: none;
         padding: 0;
@@ -83,36 +124,29 @@ nav {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        @include bp(small){
-        justify-content: space-around;
+        @include bp(small) {
+            justify-content: space-around;
         }
         li {
             transition: .4s all ease;
             display: inline-flex;
-            background-color:$lightblue;
+            background-color: $oddBg;
             border-radius: 3px;
-            margin-left:5px;
+            margin-left: 5px;
             margin-top: 5px;
             padding: 8px;
-            text-shadow: -1px -1px $grey;
-            @include bp(small){
-            padding-top:0px;
+            @include bp(small) {
+                padding-top: 0px;
                 padding-bottom: 0px;
-                margin:0;
+                margin: 0;
             }
-            
-            &:hover:not(.active){
-                background-color:$grey;
+            &:hover {
+                background-color: $evenBg;
             }
-            
             &.active {
-                
                 a {
                     padding-bottom: 2px;
                     border-bottom: 4px solid #FFF;
-                }
-                &:hover{
-                    border-bottom: 4px solid #fff;
                 }
             }
             a {
@@ -123,58 +157,58 @@ nav {
         }
     }
 }
-.web-unit{
-    max-width:960px;
-    margin:0 auto;
+
+.web-unit {
+    max-width: 960px;
+    margin: 0 auto;
     box-sizing: border-box;
-    width:100%;
-    @include bp(med){
-        width:80%;
+    width: 100%;
+    @include bp(med) {
+        width: 80%;
     }
-    @include bp(small){
-    width:100%
+    @include bp(small) {
+        width: 100%
     }
-    
-    figure{
-        background-color:white;
-        color:$grey;
+    figure {
+        background-color: white;
+        color: $subHeaderColor;
         border-radius: 10px;
-        box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.5);
-        margin-top:30px;
+        box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
+        margin-top: 30px;
         margin-bottom: 30px;
-        a{
-            border:0;
-            img{
-                width:100%;
-                margin:0 auto;
+        a {
+            border: 0;
+            img {
+                width: 100%;
+                margin: 0 auto;
                 border-top-left-radius: 10px;
                 border-top-right-radius: 10px;
-                box-shadow:0 2px 4px rgba(0,0,0,.5);
+                box-shadow: 0 2px 4px rgba(0, 0, 0, .5);
                 cursor: pointer;
                 position: relative;
                 transition: .4s all ease;
-                top:0;
-                
-                &:hover{
-                    top:-8px;
-                    @include bp(small){
-                    top:8px;
+                top: 0;
+                &:hover {
+                    top: -8px;
+                    @include bp(small) {
+                        top: 8px;
                     }
                 }
-                
             }
         }
-        figcaption{
-            padding:20px;
-            @include bp(small){padding: 5%;}
-            h2{
-            text-decoration: underline;
+        figcaption {
+            padding: 20px;
+            @include bp(small) {
+                padding: 5%;
+            }
+            h2 {
+                text-decoration: underline;
                 text-align: center;
             }
-            p{
+            p {
                 text-align: justify;
-                padding:0;
-                margin:0;
+                padding: 0;
+                margin: 0;
             }
         }
     }

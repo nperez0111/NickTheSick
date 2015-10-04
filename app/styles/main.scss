@@ -50,9 +50,11 @@ $subHeaderColor:#222;
     .fp-controlArrow {
         &.fp-prev {
             left: 3px !important;
+            @include bp(small){border-width: 28px 24px 28px 0 !important;}
         }
         &.fp-next {
             right: 3px !important;
+            @include bp(small){border-width: 28px 0 28px 24px !important;}
         }
     }
 }
@@ -71,10 +73,35 @@ $subHeaderColor:#222;
         line-height: 1;
         margin: 0;
         color: $headerColor;
+        @include bp(small){
+        margin-top:0.8em;
+        }
         //text-shadow: -2px 2px 2px darken($grey,10);
     }
+    
 }
-
+.bio{
+    #me{
+        border-radius: 10%;
+        width: 25%;
+        margin:5% auto;
+        box-shadow: 0 2px 7px rgba(0, 0, 0, .75);
+        @include bp(small){
+            width:40%;
+            margin:5% 0 0 0 ;
+        }
+    }
+    p{
+        padding:0 5%;
+        text-align: left;
+        text-indent: 3em;
+        @include bp(small){
+        text-align: justify;
+            text-indent: 1.5em;
+            
+        }
+    }
+}
 .browsehappy {
     margin: 0.2em 0;
     background: #ccc;
@@ -126,12 +153,16 @@ nav {
         justify-content: center;
         @include bp(small) {
             justify-content: space-around;
+            background-color: $oddBg;
+            box-shadow: 0 2px 3px rgba(0, 0, 0, .75);
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
         }
         li {
             transition: .4s all ease;
             display: inline-flex;
             background-color: $oddBg;
-            border-radius: 3px;
+            border-radius: 5px;
             margin-left: 5px;
             margin-top: 5px;
             padding: 8px;
@@ -153,6 +184,9 @@ nav {
                 font-weight: 600;
                 color: #FFF;
                 text-decoration: none;
+                border-bottom: 0px solid $evenBg;
+                padding-bottom:6px;
+                transition: .4s all ease;
             }
         }
     }
@@ -167,7 +201,8 @@ nav {
         width: 80%;
     }
     @include bp(small) {
-        width: 100%
+        width: 100%;
+        padding:0;
     }
     figure {
         background-color: white;
@@ -176,6 +211,9 @@ nav {
         box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.5);
         margin-top: 30px;
         margin-bottom: 30px;
+        @include bp(small){
+        margin:30px 25px;
+        }
         a {
             border: 0;
             img {
@@ -199,7 +237,7 @@ nav {
         figcaption {
             padding: 20px;
             @include bp(small) {
-                padding: 5%;
+                padding: 2.5%;
             }
             h2 {
                 text-decoration: underline;
@@ -209,6 +247,9 @@ nav {
                 text-align: justify;
                 padding: 0;
                 margin: 0;
+                @include bp(small){
+                text-align: left;
+                }
             }
         }
     }

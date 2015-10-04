@@ -3,79 +3,14 @@
 
 $(document).ready(function () {
     $('#fullpage').fullpage({
-        anchors: ['Welcome', 'Page2', 'Page3', 'Work'],
+        anchors: ['Welcome', 'About', 'Work'],
         menu: '#menu',
         navigation: false,
         scrollOverflow: true,
-        /*//*/loopTop: true
+        /*//*/loopTop: true //*/
 
     });
 });
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//navigationTooltips: ['Page1', 'Page2', 'Page3', 'Page4'],
-//showActiveTooltip: true,
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
-//# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map

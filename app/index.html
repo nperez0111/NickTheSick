@@ -27,12 +27,12 @@
     <![endif]-->
     <nav id="menu">
         <ul>
-          <li data-menuanchor="Welcome" class="active"><a href="#Welcome">Home</a></li>
-          <li data-menuanchor="Page2"><a href="#Page2">Page 2</a></li>
-          <li data-menuanchor="Page3"><a href="#Page3">Page 3</a></li>
-          <li data-menuanchor="Work"><a href="#Work">My Work</a></li>
+            <li data-menuanchor="Welcome" class="active"><a href="#Welcome">Home</a></li>
+            <!--<li data-menuanchor="Page2"><a href="#Page2">Page 2</a></li>-->
+            <li data-menuanchor="About"><a href="#About">About</a></li>
+            <li data-menuanchor="Work"><a href="#Work">My Work</a></li>
         </ul>
-      </nav>
+    </nav>
 
     <div id="fullpage">
         <div class="section">
@@ -40,112 +40,114 @@
                 <h1>Welcome to Nick The Sick's Portfolio</h1>
             </div>
         </div>
-        <div class="section">
+        <!---<div class="section">
             <div class="hero-unit">
                 <h1>This will be the most awesome Second Page ever</h1>
             </div>
-        </div>
+        </div>-->
         <div class="section">
-            <div class="hero-unit">
-                <h1>Sorry this site is still in Development (excuse the bugs and lack of content...)</h1>
+            <div class="hero-unit bio">
+                <h1>About</h1>
+                <img src="https://pbs.twimg.com/profile_images/1665475037/tangerine.jpg" id="me">
+                <p>This will be the about me section to which I refer to myself in order to further explain myself. So I begin with a set of sentences that will make myself look good in a certain manner to which you will find interesting and understandable to a certian degree so that you can later talk to me about some work that you'd like for me to do for you at some point in the future. These sentences may not be very interesting at first as I must always show my background as a first impression is a very difficult thing to shape and words on a screen are very difficult at conveying such.</p>
             </div>
         </div>
         <div class="section">
-           <div class="slide" data-anchor="Work">
-            <div class="hero-unit">
-                <h1>My Work</h1>
-                <section>
-                    <p>
-                        Next slide.
-                    </p>                    
-                </section>
-            </div>
+            <div class="slide" data-anchor="Work">
+                <div class="hero-unit">
+                    <h1>My Work</h1>
+                    <section>
+                        <p id="device">
+                            Swipe or use arrow keys to navigate slides.
+                        </p>
+                    </section>
+                </div>
             </div>
             <div class="slide" data-anchor="Hal">
                 <div class="web-unit">
-                        <figure>
-                            <a href="http://halmiles.com">
-                                 <picture>
-                                  <source srcset="images/halBig.png" media="(min-width: 1000px)">
-                                  <source srcset="images/halMed.png" media="(min-width: 800px)">
-                                  <img srcset="images/halSmall.png" alt="Hal Miles' Portfolio site layout">
-                                </picture>
-                                </a>
-                            <figcaption>
-                                <h2>Hal Miles Portfolio</h2>
-                                <p>The Hal Miles portfolio site was a "revamp" of his existing site that implemented flash, therefore it needed to be redone in order to be compatible with mobile devices. He wanted no changes to the design and for everything to work exactly the same as the original site, so I recreated the site using modern HTML5 and CSS3. From this site I learned that: Some people don't want or need new and "pretty" designs, some of the HTML5 video API and creating the best out of things by attempting to implement very semantic HTML.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
+                    <figure>
+                        <a href="http://halmiles.com">
+                            <picture>
+                                <source srcset="images/halBig.png" media="(min-width: 1000px)">
+                                <source srcset="images/halMed.png" media="(min-width: 800px)">
+                                <img srcset="images/halSmall.png" alt="Hal Miles' Portfolio site layout">
+                            </picture>
+                        </a>
+                        <figcaption>
+                            <h2>Hal Miles Portfolio</h2>
+                            <p>The Hal Miles portfolio site was a "revamp" of his existing site that implemented flash, therefore it needed to be redone in order to be compatible with mobile devices. He wanted no changes to the design and for everything to work exactly the same as the original site, so I recreated the site using modern HTML5 and CSS3. From this site I learned that: Some people don't want or need new and "pretty" designs, some of the HTML5 video API and creating the best out of things by attempting to implement very semantic HTML.</p>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
             <div class="slide" data-anchor="ImagimationStudios">
                 <div class="web-unit">
-                        <figure>
-                            <a href="http://imagimationstudios.com">
-                                 <picture>
-                                  <source srcset="images/ImagBig.png" media="(min-width: 1000px)">
-                                  <source srcset="images/ImagMed.png" media="(min-width: 800px)">
-                                  <img srcset="images/ImagSmall.png" alt="Imagimation Studios Site layout">
-                                </picture>
-                                </a>
-                            <figcaption>
-                                <h2>Imagimation Studios Site</h2>
-                                <p>Another of Hal Miles' sites, this site was completely redesigned to be a much more modern site and was designed by myself (Disclaimer: I am not a designer). His previous site was completely rendered as a flash object so I was tasked in making this available to as wide of an audience as possible.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
+                    <figure>
+                        <a href="http://imagimationstudios.com">
+                            <picture>
+                                <source srcset="images/ImagBig.png" media="(min-width: 1000px)">
+                                <source srcset="images/ImagMed.png" media="(min-width: 800px)">
+                                <img srcset="images/ImagSmall.png" alt="Imagimation Studios Site layout">
+                            </picture>
+                        </a>
+                        <figcaption>
+                            <h2>Imagimation Studios Site</h2>
+                            <p>Another of Hal Miles' sites, this site was completely redesigned to be a much more modern site and was designed by myself (Disclaimer: I am not a designer). His previous site was completely rendered as a flash object so I was tasked in making this available to as wide of an audience as possible.</p>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
             <div class="slide" data-anchor="BlueMess">
                 <div class="web-unit">
-                        <figure>
-                            <a href="https://github.com/nperez0111/BlueMessProductions">
-                                <picture>
-                                  <source srcset="images/large.jpg" media="(min-width: 1000px)">
-                                  <source srcset="images/medium.jpg" media="(min-width: 800px)">
-                                  <img srcset="images/small.jpg" alt="Image of the design mockup of the Blue Mess Productions website.">
-                                </picture>
-                            </a>
-                            <figcaption>
-                                <h2>BlueMess Productions</h2>
-                                <p>I was tasked in creating the BlueMess Productions website based upon a designer's PSD. I successfully created the site which taught me: how to stay within guidelines of a format, javascript for the album music player and that just because you made a site for someone it doesn't mean they will pay for the hosting after a year.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
+                    <figure>
+                        <a href="http://nickthesick.com/BlueMessProductions/">
+                            <picture>
+                                <source srcset="images/large.jpg" media="(min-width: 1000px)">
+                                <source srcset="images/medium.jpg" media="(min-width: 800px)">
+                                <img srcset="images/small.jpg" alt="Image of the design mockup of the Blue Mess Productions website.">
+                            </picture>
+                        </a>
+                        <figcaption>
+                            <h2>BlueMess Productions</h2>
+                            <p>I was tasked in creating the BlueMess Productions website based upon a designer's PSD. I successfully created the site which taught me: how to stay within guidelines of a format, javascript for the album music player and that just because you made a site for someone it doesn't mean they will pay for the hosting after a year.</p>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
             <div class="slide" data-anchor="SAS">
                 <div class="web-unit">
-                        <figure>
-                            <a href="http://sas.nickthesick.com/">
-                                <picture>
-                                  <source srcset="images/sasBig.jpg" media="(min-width: 1000px)">
-                                  <source srcset="images/sasMed.jpg" media="(min-width: 800px)">
-                                  <img srcset="images/sasSmall.jpg" alt="Image of the School for advanced Studies Web App to choose courses within Miami Dade College just a little simpler.">
-                                </picture>
-                            </a>
-                            <figcaption>
-                                <h2>SAS Web-App</h2>
-                                <p>I made the SAS Dual-Enrollment Course finder that greatly simplifies the proccess of choosing dual enrollment courses within Miami Dade College. This web-app makes heavy usage of JavaScript and communicates with a database that stores every course's information. This web-app taught me so much including but not limited to PHP, MySql databases, parsing of another site in order to scrape the course information and some design principles.</p>
-                            </figcaption>
-                        </figure>
-                    </div>
+                    <figure>
+                        <a href="http://sas.nickthesick.com/">
+                            <picture>
+                                <source srcset="images/sasBig.jpg" media="(min-width: 1000px)">
+                                <source srcset="images/sasMed.jpg" media="(min-width: 800px)">
+                                <img srcset="images/sasSmall.jpg" alt="Image of the School for advanced Studies Web App to choose courses within Miami Dade College just a little simpler.">
+                            </picture>
+                        </a>
+                        <figcaption>
+                            <h2>SAS Web-App</h2>
+                            <p>I made the SAS Dual-Enrollment Course finder that greatly simplifies the proccess of choosing dual enrollment courses within Miami Dade College. This web-app makes heavy usage of JavaScript and communicates with a database that stores every course's information. This web-app taught me so much including but not limited to PHP, MySql databases, parsing of another site in order to scrape the course information and some design principles.</p>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
             <div class="slide" data-anchor="Onswee">
                 <div class="web-unit">
-                        <figure>
-                            <a href="http://onswee.nickthesick.com/">
-                                <picture>
-                                  <source srcset="images/onsweeBig.png" media="(min-width: 1000px)">
-                                  <source srcset="images/onsweeMed.png" media="(min-width: 800px)">
-                                  <img srcset="images/onsweeSmall.png" alt="Image of a Tic Tac Toe like game where you are able to move the pieces implemented with AI or multiplayer support.">
-                                </picture>
-                            </a>
-                            <figcaption>
-                                <h2>Onswee</h2>
-                                <p>This is a game I wrote using HTML5, JavaScript and CSS that is similar to Tic Tac Toe but you are able to move your pieces. I had to design the entire SPA web-app and all of the game logic implemented into an AI to play against. This taught me several concepts in JavaScript such as objects and classing within JavaScript, array manipulation and AI Logic.
-                                </p>
-                            </figcaption>
-                        </figure>
-                    </div>
+                    <figure>
+                        <a href="http://onswee.nickthesick.com/">
+                            <picture>
+                                <source srcset="images/onsweeBig.png" media="(min-width: 1000px)">
+                                <source srcset="images/onsweeMed.png" media="(min-width: 800px)">
+                                <img srcset="images/onsweeSmall.png" alt="Image of a Tic Tac Toe like game where you are able to move the pieces implemented with AI or multiplayer support.">
+                            </picture>
+                        </a>
+                        <figcaption>
+                            <h2>Onswee</h2>
+                            <p>This is a game I wrote using HTML5, JavaScript and CSS that is similar to Tic Tac Toe but you are able to move your pieces. I had to design the entire SPA web-app and all of the game logic implemented into an AI to play against. This taught me several concepts in JavaScript such as objects and classing within JavaScript, array manipulation and AI Logic.
+                            </p>
+                        </figcaption>
+                    </figure>
+                </div>
             </div>
         </div>
     </div>
@@ -180,7 +182,8 @@
             e.src = 'https://www.google-analytics.com/analytics.js';
             r.parentNode.insertBefore(e, r)
         }(window, document, 'script', 'ga'));
-        ga('create', 'UA-XXXXX-X');
+        ga('create', 'UA-61069332-1');
+        ga('require', 'linkid');
         ga('send', 'pageview');
     </script>
 </body>

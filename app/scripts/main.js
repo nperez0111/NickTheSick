@@ -10,7 +10,24 @@ $(document).ready(function () {
         /*//*/loopTop: true //*/
 
     });
+    $('.down').click($.fn.fullpage.moveSectionDown);
+    $('.left').click($.fn.fullpage.moveSlideRight);
 });
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map

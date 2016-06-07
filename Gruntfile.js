@@ -1,5 +1,5 @@
-// Generated on 2015-07-21 using
-// generator-webapp 1.0.1
+// Generated on 2016-06-07 using
+// generator-webapp 1.1.0
 'use strict';
 
 // # Globbing
@@ -15,7 +15,7 @@ module.exports = function (grunt) {
 
   // Automatically load required grunt tasks
   require('jit-grunt')(grunt, {
-      useminPrepare: 'grunt-usemin'
+    useminPrepare: 'grunt-usemin'
   });
 
   // Configurable paths
@@ -49,30 +49,33 @@ module.exports = function (grunt) {
       },
       sass: {
         files: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['sass:server', 'postcss']
+        tasks: ['sass', 'postcss']
       },
       styles: {
         files: ['<%= config.app %>/styles/{,*/}*.css'],
-        tasks: ['postcss']
+        tasks: ['newer:copy:styles', 'postcss']
       }
     },
 
     browserSync: {
       options: {
         notify: false,
-        background: true
+        background: true,
+        watchOptions: {
+          ignored: ''
+        }
       },
       livereload: {
         options: {
           files: [
             '<%= config.app %>/{,*/}*.html',
-            '<%= config.app %>/styles/{,*/}*.css',
+            '.tmp/styles/{,*/}*.css',
             '<%= config.app %>/images/{,*/}*',
-            '<%= config.app %>/scripts/{,*/}*.js'
+            '.tmp/scripts/{,*/}*.js'
           ],
           port: 9000,
           server: {
-            baseDir: [ config.app],
+            baseDir: ['.tmp', config.app],
             routes: {
               '/bower_components': './bower_components'
             }
@@ -86,7 +89,7 @@ module.exports = function (grunt) {
           logLevel: 'silent',
           host: 'localhost',
           server: {
-            baseDir: ['./test', config.app],
+            baseDir: ['.tmp', './test', config.app],
             routes: {
               '/bower_components': './bower_components'
             }
@@ -139,14 +142,14 @@ module.exports = function (grunt) {
     // Compiles ES6 with Babel
     babel: {
       options: {
-          sourceMap: true
+        sourceMap: true
       },
       dist: {
         files: [{
           expand: true,
           cwd: '<%= config.app %>/scripts',
           src: '{,*/}*.js',
-          dest: '<%= config.app %>/scripts',
+          dest: '.tmp/scripts',
           ext: '.js'
         }]
       },
@@ -155,7 +158,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'test/spec',
           src: '{,*/}*.js',
-          dest: '<%= config.app %>/spec',
+          dest: '.tmp/spec',
           ext: '.js'
         }]
       }
@@ -174,16 +177,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: '<%= config.app %>/styles',
           src: ['*.{scss,sass}'],
-          dest: '<%= config.app %>/styles',
-          ext: '.css'
-        }]
-      },
-      server: {
-        files: [{
-          expand: true,
-          cwd: '<%= config.app %>/styles',
-          src: ['*.{scss,sass}'],
-          dest: '<%= config.app %>/styles',
+          dest: '.tmp/styles',
           ext: '.css'
         }]
       }
@@ -194,17 +188,17 @@ module.exports = function (grunt) {
         map: true,
         processors: [
           // Add vendor prefixed styles
-          require('autoprefixer-core')({
-            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']
+          require('autoprefixer')({
+            browsers: ['> 1%', 'last 2 versions', 'Firefox ESR']
           })
         ]
       },
       dist: {
         files: [{
           expand: true,
-          cwd: '<%= config.app %>/styles/',
+          cwd: '.tmp/styles/',
           src: '{,*/}*.css',
-          dest: '<%= config.app %>/styles/'
+          dest: '.tmp/styles/'
         }]
       }
     },
@@ -213,7 +207,7 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= config.app %>/index.html'],
-        ignorePath: /^(\.\.\/)*\.\.\//
+        ignorePath: /^(\.\.\/)*\.\./
       },
       sass: {
         src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}'],
@@ -351,7 +345,7 @@ module.exports = function (grunt) {
     concurrent: {
       server: [
         'babel:dist',
-        'sass:server'
+        'sass'
       ],
       test: [
         'babel'

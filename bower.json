@@ -9,8 +9,11 @@
     "hide-address-bar": "*"
   },
   "devDependencies": {
-    "chai": "~3.2.0",
-    "mocha": "~2.2.5",
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3",
     "fullpage.js": "~2.6.7"
+  },
+  "resolutions": {
+    "mocha": "^2.5.3"
   }
 }

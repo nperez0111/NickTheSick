@@ -5,7 +5,8 @@
     "jquery": "~2.1.4",
     "fullpage.js": "~2.6.7",
     "picturefill": "~2.3.1",
-    "fastclick": "^1.0.6"
+    "fastclick": "^1.0.6",
+    "hide-address-bar": "*"
   },
   "devDependencies": {
     "chai": "~3.2.0",

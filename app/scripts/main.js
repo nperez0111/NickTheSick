@@ -12,20 +12,24 @@ $(document).ready(function () {
     });
     $('.down').click($.fn.fullpage.moveSectionDown);
     $('.left').click($.fn.fullpage.moveSlideRight);
-    if(!window.pageYOffset){ hideAddressBar(); }
+    if (!window.pageYOffset) {
+        hideAddressBar();
+    }
 });
 
-function hideAddressBar()
-{
-      if(document.height < window.outerHeight)
-      {
-          document.body.style.height = (window.outerHeight + 50) + 'px';
-      }
+function hideAddressBar() {
+    if (document.height < window.outerHeight) {
+        document.body.style.height = window.outerHeight + 50 + 'px';
+    }
 
-      setTimeout( function(){ window.scrollTo(0, 1); }, 50 );
+    setTimeout(function () {
+        window.scrollTo(0, 1);
+    }, 50);
 }
 
-window.addEventListener("orientationchange", hideAddressBar );
+window.addEventListener("orientationchange", hideAddressBar);
+//# sourceMappingURL=main.js.map
+//# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map
 //# sourceMappingURL=main.js.map

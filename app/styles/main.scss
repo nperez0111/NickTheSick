@@ -253,6 +253,7 @@ nav {
         $aP:10px;
         .browser {
             position: relative;
+            display: block;
             padding-top: $barHeight;
             background: linear-gradient(180deg, $barBgColor, $barBgColor $barHeight, $browserBgColor $barHeight, $browserBgColor);
             border-radius: $borderRadius;

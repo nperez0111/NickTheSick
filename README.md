@@ -1,3 +1,7 @@
 # NickTheSick
 Nick The Sick.com personal site
-This will become my portfolio site once I actually finish it :P
+
+![Screen Shot Of the Website](screen.png)
+
+# Who I am 
+I'm Nick the Sick AKA Nicholas Perez a web developer who was born in Miami and currently lives in San Francisco.

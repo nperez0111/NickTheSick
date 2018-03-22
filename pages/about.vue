@@ -1,0 +1,115 @@
+<template>
+  <v-layout column justify-center align-center>
+  	<Full-Height class="blue fullwidth">
+  		<v-layout column justify-center align-center>
+	  	<h1 :class="{'text-xs-center':true, 'ma-5':$vuetify.breakpoint.lgAndUp, 'ma-3':$vuetify.breakpoint.mdAndDown, 'display-3':$vuetify.breakpoint.lgAndUp, 'display-4':$vuetify.breakpoint.xlAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">About Nick the Sick</h1>
+	  	</v-layout>
+		<v-layout column justify-center align-center>
+			<div class="text-editor-wrap">
+				<div ref="typerStrings">
+					<p>Hey thanks for coming to my website! I know there are a lot of other websites you could be on right now and you choose to come here so thats super cool!</p>
+					<p>So I know how annoying it is to read from this so just click below!</p>
+				</div>
+				<div class="title-bar">
+					<span class="black--text">
+						Nick The Sick — bash — 80x<span class="terminal-height">10</span>
+					</span>
+				</div>
+				<div class="text-body">
+					$ <span ref="typer"></span>
+				</div>
+			</div>
+			<v-btn icon flat fab :class="{'mb-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.smAndDown}" v-scroll-to="'#page-2'">
+				<v-icon class="display-3">keyboard_arrow_down</v-icon>
+			</v-btn>
+		</v-layout>
+	</Full-Height>
+    <Full-Height id="page-2" class="column justify-center align-center indigo fullwidth">
+    	stuff
+    </Full-Height>
+  </v-layout>
+</template>
+<script>
+import FullHeight from '@/components/Full-Height'
+import Typer from 'typed.js'
+	export default {
+		data(){
+			return {
+				typerInstance:null
+			}
+		},
+		mounted(){
+			console.log(this.$refs)
+			this.typerInstance=new Typer(this.$refs.typer,{
+				stringsElement:this.$refs.typerStrings,
+				smartBackspace:true,
+				loop:true,
+				showCursor:false,
+				typeSpeed: 40,
+				backDelay:2000,
+			})
+		},
+		components:{
+			"Full-Height":FullHeight
+		},
+		methods:{
+			scrollTo(el){
+				const toScroll=this.$el.querySelector(el)
+				console.log(toScroll)
+				toScroll.scrollTop=toScroll.scrollHeight
+			}
+		}
+	}
+</script>
+<style>
+.title-bar {
+    padding: 5px 0;
+    font-family: "Lucida Grande", sans-serif;
+    font-size: 0.75em;
+    text-align: center;
+    text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
+    background-color: #f8f8f8;
+    background-image: -webkit-linear-gradient(top, #e8e8e8, #bcbbbc);
+    background-image: -moz-linear-gradient(top, #e8e8e8, #bcbbbc);
+    background-image: linear-gradient(top, #e8e8e8, #bcbbbc);
+    box-shadow: inset rgba(255, 255, 255, 0.7) 0px 1px 1px;
+    border-bottom: #6a6a6a 1px solid;
+}
+.text-body {
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 20px;
+    color: #f0f0f0;
+    text-shadow: #000 0px 1px 0px;
+    font-family: "Consolas", "Courier New", "Courier";
+    font-size: 1.45em;
+    line-height: 1.40em;
+    font-weight: 500;
+    text-align: left;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.text-editor-wrap {
+    display: block;
+    margin: auto;
+    width:90%;
+    max-width: 800px;
+    margin:15px;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 20px 70px;
+    clear: both;
+    overflow: hidden;
+    -webkit-transition: all 0.5s ease-out;
+    -moz-transition: all 0.5s ease-out;
+    -ms-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
+}
+.fullwidth{
+	width:100%;
+}
+</style>

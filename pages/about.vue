@@ -7,7 +7,7 @@
 		<v-layout column justify-center align-center>
 			<div class="text-editor-wrap">
 				<div ref="typerStrings">
-					<p>Hey thanks for coming to my website! I know there are a lot of other websites you could be on right now and you choose to come here so thats super cool!</p>
+					<p>Hey thanks for coming to my website! I know there are a lot of other websites you could be on right now and you choose to come here so thanks!</p>
 					<p>So I know how annoying it is to read from this so just click below!</p>
 				</div>
 				<div class="title-bar">
@@ -19,13 +19,25 @@
 					$ <span ref="typer"></span>
 				</div>
 			</div>
-			<v-btn icon flat fab :class="{'mb-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.smAndDown}" v-scroll-to="'#page-2'">
+			<v-btn icon flat fab :class="{'ma-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.smAndDown}" @click="$vuetify.goTo($refs['page-2'])">
 				<v-icon class="display-3">keyboard_arrow_down</v-icon>
 			</v-btn>
 		</v-layout>
 	</Full-Height>
-    <Full-Height id="page-2" class="column justify-center align-center indigo fullwidth">
-    	stuff
+    <Full-Height ref="page-2" class="column justify-center align-center indigo fullwidth">
+    	<v-layout class="lg4 fullwidth">
+    		<v-layout class="md5 flex fullwidth green justify-center align-center">A</v-layout>
+    		<v-layout class="md7 flex fullwidth purple justify-center align-center">B</v-layout>
+    	</v-layout>
+    	<v-layout class="lg4 fullwidth">
+    		<v-layout class="md7 flex fullwidth red justify-center align-center">A</v-layout>
+    		<v-layout class="md5 flex fullwidth blue justify-center align-center">B</v-layout>
+    	</v-layout>
+    	<v-layout class="lg4 fullwidth">
+    		<v-layout class="md5 flex fullwidth green justify-center align-center">A</v-layout>
+    		<v-layout class="md7 flex fullwidth purple justify-center align-center">B</v-layout>
+    	</v-layout>
+    	<!--<p>My name is Nicholas Perez, I am a software developer that makes a lot of stuff but I prefer things</p>-->
     </Full-Height>
   </v-layout>
 </template>
@@ -39,25 +51,21 @@ import Typer from 'typed.js'
 			}
 		},
 		mounted(){
-			console.log(this.$refs)
 			this.typerInstance=new Typer(this.$refs.typer,{
 				stringsElement:this.$refs.typerStrings,
 				smartBackspace:true,
 				loop:true,
-				showCursor:false,
+				loopCount:3,
+				showCursor:true,
 				typeSpeed: 40,
 				backDelay:2000,
 			})
 		},
+		beforeDestroy(){
+			this.typerInstance.destroy()
+		},
 		components:{
 			"Full-Height":FullHeight
-		},
-		methods:{
-			scrollTo(el){
-				const toScroll=this.$el.querySelector(el)
-				console.log(toScroll)
-				toScroll.scrollTop=toScroll.scrollHeight
-			}
 		}
 	}
 </script>
@@ -108,6 +116,56 @@ import Typer from 'typed.js'
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
+}
+.typed-cursor {
+  opacity: 1;
+  font-weight: 100;
+  -webkit-animation: blink 0.7s infinite;
+  -moz-animation: blink 0.7s infinite;
+  -ms-animation: blink 0.7s infinite;
+  -o-animation: blink 0.7s infinite;
+  animation: blink 0.7s infinite; 
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } 
+}
+@-webkit-keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } 
+}
+@-moz-keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } 
+}
+@-ms-keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; }
+}
+@-o-keyframes blink {
+  0% {
+    opacity: 1; }
+  50% {
+    opacity: 0; }
+  100% {
+    opacity: 1; } 
 }
 .fullwidth{
 	width:100%;

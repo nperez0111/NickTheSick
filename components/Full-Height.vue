@@ -13,6 +13,7 @@ import Resize from 'vuetify/src/directives/resize'
 let mainToolBarHeight = 64
 export default {
     data() {
+
         return {
             windowSize: {
                 x: 0,
@@ -45,7 +46,10 @@ export default {
         }
     },
     props: {
-        parallax: Boolean,
+        parallax: {
+          type:Boolean,
+          default:false
+        },
         src: String,
         full: {
             type: Boolean,

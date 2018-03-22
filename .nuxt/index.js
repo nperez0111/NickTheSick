@@ -13,7 +13,6 @@ import { createStore } from './store.js'
 
 /* Plugins */
 import nuxt_plugin_vuetify_d6afc2c2 from 'nuxt_plugin_vuetify_d6afc2c2' // Source: ../plugins/vuetify.js
-import nuxt_plugin_scrollTo_3b9a7599 from 'nuxt_plugin_scrollTo_3b9a7599' // Source: ../plugins/scrollTo.js
 
 
 // Component: <no-ssr>
@@ -153,7 +152,6 @@ async function createApp (ssrContext) {
   // Plugin execution
   
   if (typeof nuxt_plugin_vuetify_d6afc2c2 === 'function') await nuxt_plugin_vuetify_d6afc2c2(app.context, inject)
-  if (typeof nuxt_plugin_scrollTo_3b9a7599 === 'function') await nuxt_plugin_scrollTo_3b9a7599(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first

@@ -4,7 +4,7 @@
   		<v-layout column justify-center align-center>
 	  	<h1 :class="{'text-xs-center':true, 'ma-5':$vuetify.breakpoint.lgAndUp, 'ma-3':$vuetify.breakpoint.mdAndDown, 'display-3':$vuetify.breakpoint.lgAndUp, 'display-4':$vuetify.breakpoint.xlAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">About Nick the Sick</h1>
 	  	</v-layout>
-		<v-layout column justify-center align-center>
+		<v-layout column justify-space-between align-center>
 			<div class="text-editor-wrap">
 				<div ref="typerStrings">
 					<p>Hey thanks for coming to my website! I know there are a lot of other websites you could be on right now and you choose to come here so thanks!</p>
@@ -24,21 +24,24 @@
 			</v-btn>
 		</v-layout>
 	</Full-Height>
-    <Full-Height ref="page-2" class="column justify-center align-center indigo fullwidth">
-    	<v-layout class="lg4 fullwidth">
-    		<v-layout class="md5 flex fullwidth green justify-center align-center">A</v-layout>
-    		<v-layout class="md7 flex fullwidth purple justify-center align-center">B</v-layout>
-    	</v-layout>
-    	<v-layout class="lg4 fullwidth">
-    		<v-layout class="md7 flex fullwidth red justify-center align-center">A</v-layout>
-    		<v-layout class="md5 flex fullwidth blue justify-center align-center">B</v-layout>
-    	</v-layout>
-    	<v-layout class="lg4 fullwidth">
-    		<v-layout class="md5 flex fullwidth green justify-center align-center">A</v-layout>
-    		<v-layout class="md7 flex fullwidth purple justify-center align-center">B</v-layout>
-    	</v-layout>
-    	<!--<p>My name is Nicholas Perez, I am a software developer that makes a lot of stuff but I prefer things</p>-->
-    </Full-Height>
+  <v-layout class="lg4 fullwidth blue darken-3" ref="page-2">
+  		<v-layout class="md5 flex fullwidth justify-center align-center py-5">
+        <div class="avatar">
+          <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg">
+        </div>
+      </v-layout>
+  		<v-layout class="md7 flex fullwidth justify-center align-center">
+        <p>Hi, my name is Nicholas Perez! I make stuff a lot of different types of stuff like websites,web applications, programs.</p>
+      </v-layout>
+  	</v-layout>
+  	<v-layout class="lg4 fullwidth">
+  		<v-layout class="md5 order-md2 flex fullwidth red justify-center align-center">The Work</v-layout>
+  		<v-layout class="md7 flex fullwidth blue justify-center align-center">A</v-layout>
+  	</v-layout>
+  	<v-layout class="lg4 fullwidth">
+  		<v-layout class="md5 flex fullwidth green justify-center align-center">The Legend</v-layout>
+  		<v-layout class="md7 flex fullwidth purple justify-center align-center">B</v-layout>
+  	</v-layout>
   </v-layout>
 </template>
 <script>

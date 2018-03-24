@@ -36,7 +36,7 @@
         drawer:false,
         items: [
           { icon: 'apps', title: 'Home', to: '/' },
-          { icon: 'bubble_chart', title: 'About Nick', to: '/about' }
+          { icon: 'perm_identity', title: 'About Nick', to: '/about' }
         ],
         title: 'Nick the Sick'
       }

@@ -18,7 +18,7 @@
         </v-list-tile>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app>
+    <v-toolbar fixed app v-if="toolbar">
       <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-toolbar-title v-text="title" @click="$router.push('/')"></v-toolbar-title>
       <v-spacer></v-spacer>
@@ -32,8 +32,12 @@
 <script>
   export default {
     data () {
+      this.$toolbar.onchange(cur=>{
+        this.toolbar=cur
+      })
       return {
         drawer:false,
+        toolbar:this.$toolbar.active,
         items: [
           { icon: 'apps', title: 'Home', to: '/' },
           { icon: 'perm_identity', title: 'About Nick', to: '/about' }

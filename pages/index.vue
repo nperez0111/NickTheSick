@@ -1,18 +1,19 @@
 <template>
   <v-layout column justify-center align-center>
-  	<Full-Height class="blue fullwidth">
+  	<Full-Height class="blue fullwidth" src="/trianglify.svg">
   		<v-layout column justify-center align-center>
-	  	<h1 :class="{'text-xs-center':true, 'ma-5':$vuetify.breakpoint.lgAndUp, 'ma-3':$vuetify.breakpoint.mdAndDown, 'display-3':$vuetify.breakpoint.lgAndUp, 'display-4':$vuetify.breakpoint.xlAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">Welcome to Nick the Sick's Portfolio!</h1>
+	  	<h1 :class="{'text-xs-center':true, 'mt-5':$vuetify.breakpoint.lgAndUp, 'mt-3':$vuetify.breakpoint.mdAndDown, 'display-3':$vuetify.breakpoint.lgAndUp, 'display-4':$vuetify.breakpoint.xlAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">I'm <span class="black--text">Nicholas Perez</span>.</br> I'm a full stack web developer.</h1>
+	  	<h2 class="title my-3 mx-4 text-xs-center">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
 	  	</v-layout>
   		<v-layout column justify-space-between align-center>
   			<div class="text-editor-wrap">
   				<div ref="typerStrings" style="display:none">
-  					<p>Hey thanks for coming to my website! I know there are a lot of other websites you could be on right now and you choose to come here so thanks!</p>
+  					<p>Thanks for coming to my website! I know there are a lot of other websites you could be on right now and you choose to come here so thanks!</p>
   					<p>So I know how annoying it is to read from this so just click below!</p>
   				</div>
   				<div class="title-bar">
-  					<span class="black--text">
-  						Nick The Sick — bash — 80x<span class="terminal-height">10</span>
+  					<span class="black--text ">
+  						Nick The Sick' Website — bash — 120x20
   					</span>
   				</div>
   				<div class="text-body">
@@ -26,7 +27,7 @@
   	</Full-Height>
     <v-layout class="fullwidth blue darken-3 wrap py-5" ref="page-2">
       <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
-        <h1 class="display-2">I am Nick the Sick A.K.A Nicholas Perez</h1>
+        <h1 class="display-2 mx-5 text-xs-center">I am Nick the Sick A.K.A Nicholas Perez</h1>
       </v-layout>
   		<v-layout class="sm12 md5 flex fullwidth justify-center align-center py-5">
         <div class="avatar my-5">
@@ -40,7 +41,7 @@
   	</v-layout>
   	<v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
       <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
-        <h1 class="display-2">Recent Projects</h1>
+        <h1 class="display-2 mx-5 text-xs-center">Recent Projects</h1>
       </v-layout>
   		<v-layout class="md6 lg4 xl3 flex fullwidth justify-center align-center column pt-1 pb-5 px-5" v-for="item in projects" :key="item.image">
         <a :href="item.viewerLink||item.projectLink"><img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}"></a>
@@ -64,11 +65,12 @@
 </template>
 <script>
 import FullHeight from '@/components/Full-Height'
+
 import Typer from 'typed.js'
 	export default {
 		data(){
 			return {
-				typerInstance:null,
+		typerInstance:null,
         projects:[{
           image:'/pianoserver.png',
           title:'Pianoserver',
@@ -76,22 +78,28 @@ import Typer from 'typed.js'
           projectLink:'https://github.com/nperez0111/pianoserver',
           viewerLink:'https://pianoserver.nickthesick.com/'
         },{
+        	image:'/sas.png',
+        	title:'School For Advanced Studies Course Selecter',
+        	description:'This web app helps students pick their courses in a fast and efficient way compared to the previously atrocious system of cross-referencing multiple documents.',
+        	projectLink:'https://github.com/nperez0111/sas',
+        	viewerLink:'https://sas.nickthesick.comsas'
+        },{
           image:'/dresscoderules.png',
           title:'DressCodeRules - Hydra',
           description:'An internal use tool for DressCodeRules.com to aggregate product feeds to then be inserted into the WordPress site in a consistent format.',
           projectLink:'https://bitbucket.org/dresscoderules/hydra/overview',
           viewerLink:'http://imports.dresscoderules.com:333/hydra/#/'
         },{
-          image:'/lightsource.png',
-          title:'LightSource SF Mounting Calculator',
-          description:'This is an internal use tool for LightSource Sf, a printing company, to be able to accurately price their prints.',
-          viewerLink:'http://calc.lightsourcesf.com/'
-        },{
           image:'/howwide.png',
           title:'How Wide Is It?',
           description:'Ever wondered the real dimensions of your monitor? Monitors are measured diagonally and this tool lets you see the real width and height of them.',
           projectLink:'https://github.com/nperez0111/howWideIsIt',
           viewerLink:'https://howwide.nickthesick.com'
+        },{
+          image:'/lightsource.png',
+          title:'LightSource SF Mounting Calculator',
+          description:'This is an internal use tool for LightSource Sf, a printing company, to be able to accurately price their prints.',
+          viewerLink:'http://calc.lightsourcesf.com/'
         }]
 			}
 		},

@@ -13,6 +13,7 @@ import { createStore } from './store.js'
 
 /* Plugins */
 import nuxt_plugin_vuetify_d6afc2c2 from 'nuxt_plugin_vuetify_d6afc2c2' // Source: ../plugins/vuetify.js
+import nuxt_plugin_toolbar_e44e0edc from 'nuxt_plugin_toolbar_e44e0edc' // Source: ../plugins/toolbar.js
 
 
 // Component: <no-ssr>
@@ -152,6 +153,7 @@ async function createApp (ssrContext) {
   // Plugin execution
   
   if (typeof nuxt_plugin_vuetify_d6afc2c2 === 'function') await nuxt_plugin_vuetify_d6afc2c2(app.context, inject)
+  if (typeof nuxt_plugin_toolbar_e44e0edc === 'function') await nuxt_plugin_toolbar_e44e0edc(app.context, inject)
   
 
   // If server-side, wait for async component to be resolved first

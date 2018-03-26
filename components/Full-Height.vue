@@ -1,6 +1,6 @@
 <template>
     <v-parallax :src="src" :height="height" v-if="parallax">
-        <v-layout v-resize="onResize" :style="style" :class="mainClass" v-if="parallax">
+        <v-layout v-resize="onResize" :class="mainClass">
             <slot></slot>
         </v-layout>
     </v-parallax>
@@ -13,13 +13,16 @@ import Resize from 'vuetify/src/directives/resize'
 let mainToolBarHeight = 64
 export default {
     data() {
-
+        this.$toolbar.onchange(cur=>{
+            this.toolbarActive=cur
+          })
         return {
             windowSize: {
                 x: 0,
                 y: 0
             },
-            classes: []
+            classes: [],
+            toolbarActive:this.$toolbar.active
         }
     },
     mounted() {
@@ -42,7 +45,7 @@ export default {
             return layoutClasses
         },
         height() {
-            return this.windowSize.y - mainToolBarHeight
+            return this.windowSize.y - ( this.toolbarActive ? mainToolBarHeight : 0 )
         }
     },
     props: {
@@ -64,10 +67,8 @@ export default {
         onResize() {
             if(this.$vuetify.breakpoint.mdAndDown){
               mainToolBarHeight=48
-              console.log("sml")
             }else{
               mainToolBarHeight=64
-              console.log("big")
             }
             this.windowSize = {
                 x: window.innerWidth,

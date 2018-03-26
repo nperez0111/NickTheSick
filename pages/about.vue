@@ -2,7 +2,7 @@
   <v-layout column justify-center align-center>
   	<Full-Height class="blue fullwidth">
   		<v-layout column justify-center align-center>
-	  	<h1 :class="{'text-xs-center':true, 'ma-5':$vuetify.breakpoint.lgAndUp, 'ma-3':$vuetify.breakpoint.mdAndDown, 'display-3':$vuetify.breakpoint.lgAndUp, 'display-4':$vuetify.breakpoint.xlAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">About Nick the Sick</h1>
+	  	<h1 :class="{'text-xs-center':true, 'ma-5':$vuetify.breakpoint.lgAndUp, 'ma-3':$vuetify.breakpoint.mdAndDown, 'display-3':$vuetify.breakpoint.lgAndUp, 'display-4':$vuetify.breakpoint.xlAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">Welcome to Nick the Sick's Portfolio!</h1>
 	  	</v-layout>
   		<v-layout column justify-space-between align-center>
   			<div class="text-editor-wrap">
@@ -26,32 +26,33 @@
   	</Full-Height>
     <v-layout class="fullwidth blue darken-3 wrap py-5" ref="page-2">
       <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
-        <h1 class="display-2">I'm Nick the Sick A.K.A Nicholas Perez</h1>
+        <h1 class="display-2">I am Nick the Sick A.K.A Nicholas Perez</h1>
       </v-layout>
   		<v-layout class="sm12 md5 flex fullwidth justify-center align-center py-5">
         <div class="avatar my-5">
-          <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-1 profile-img">
+          <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-3 profile-img">
         </div>
       </v-layout>
   		<v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-5">
-        <p class="headline text-xs-center">I make stuff a lot of different types of stuff like websites, web applications, mobile applications, desktop programs and scripts.</p>
+        <p class="headline">I am a software developer who is passionate about technology and making new things. I specialize in front end web apps and websites, my genuine passion is that I want to make software to help make people’s lives easier. I have a dream wherein one day someone will show me either a product telling me how useful it is to them and to be able to say to them “I made that”.</br>
+        I have several years experience in making websites and web apps and it is where I am most comfortable (although I am capable in other fields such as scripts and servers).</p>
       </v-layout>
   	</v-layout>
   	<v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
       <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
         <h1 class="display-2">Recent Projects</h1>
       </v-layout>
-  		<v-layout class="md6 lg4 flex fullwidth justify-center align-center column pt-1 pb-5 px-5" v-for="item in projects" :key="item.image">
-        <img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}">
+  		<v-layout class="md6 lg4 xl3 flex fullwidth justify-center align-center column pt-1 pb-5 px-5" v-for="item in projects" :key="item.image">
+        <a :href="item.viewerLink||item.projectLink"><img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}"></a>
         <h2 class="mt-1 mb-1 headline text-xs-center" v-text="item.title"></h2>
         <h3 class="text-xs-center subheading mb-3" v-text="item.description"></h3>
         <v-btn :href="item.projectLink" v-if="item.projectLink" color="primary">
           Go see the Project
-          <v-icon right>arrow_forward</v-icon>
+          <v-icon right>launch</v-icon>
         </v-btn>
-        <v-btn :href="item.viewerLink" v-if="item.viewerLink" color="primary">
+        <v-btn :href="item.viewerLink" v-else color="primary">
           Go see the Website
-          <v-icon right>arrow_forward</v-icon>
+          <v-icon right>launch</v-icon>
         </v-btn>
       </v-layout>
   	</v-layout>
@@ -71,18 +72,26 @@ import Typer from 'typed.js'
         projects:[{
           image:'/pianoserver.png',
           title:'Pianoserver',
-          description:'Full integration of Pandora into your computer with Notifications, Shortcuts and a Web UI.',
-          projectLink:'https://github.com/nperez0111/pianoserver'
+          description:'Full integration of Pandora into your computer with notifications, shortcuts and a Web Interface.',
+          projectLink:'https://github.com/nperez0111/pianoserver',
+          viewerLink:'https://pianoserver.nickthesick.com/'
         },{
           image:'/dresscoderules.png',
           title:'DressCodeRules - Hydra',
-          description:'An internal use tool for DressCodeRules.com to aggregate Product feeds to then be inserted into the WordPress site in the proper format.',
-          projectLink:'https://bitbucket.org/dresscoderules/hydra/overview'
+          description:'An internal use tool for DressCodeRules.com to aggregate product feeds to then be inserted into the WordPress site in a consistent format.',
+          projectLink:'https://bitbucket.org/dresscoderules/hydra/overview',
+          viewerLink:'http://imports.dresscoderules.com:333/hydra/#/'
         },{
           image:'/lightsource.png',
           title:'LightSource SF Mounting Calculator',
-          description:'This is an internal use tool for LightSource Sf, a printing company, to be able to accurately price their prints',
+          description:'This is an internal use tool for LightSource Sf, a printing company, to be able to accurately price their prints.',
           viewerLink:'http://calc.lightsourcesf.com/'
+        },{
+          image:'/howwide.png',
+          title:'How Wide Is It?',
+          description:'Ever wondered the real dimensions of your monitor? Monitors are measured diagonally and this tool lets you see the real width and height of them.',
+          projectLink:'https://github.com/nperez0111/howWideIsIt',
+          viewerLink:'https://howwide.nickthesick.com'
         }]
 			}
 		},

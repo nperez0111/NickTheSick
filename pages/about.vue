@@ -37,7 +37,7 @@
         <p class="headline text-xs-center">I make stuff a lot of different types of stuff like websites, web applications, mobile applications, desktop programs and scripts.</p>
       </v-layout>
   	</v-layout>
-  	<v-layout class="fullwidth indigo darken-3" wrap>
+  	<v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
       <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
         <h1 class="display-2">Recent Projects</h1>
       </v-layout>

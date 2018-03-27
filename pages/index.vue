@@ -79,7 +79,7 @@
             </v-layout>
             <v-layout class="xs12 md5 justify-center align-center flex column pt-1 pb-5 mb-3 px-5">
                 <v-layout class="flex md6 fullwidth">
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="tel:3052828358" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="tel:3052828358" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-phone-squared display-3"></v-icon>
                         </v-card-media>
@@ -87,7 +87,7 @@
                             <h2>Text</h2>
                         </v-card-text>
                     </v-card>
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="mailto:nperez0111@gmail.com" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="mailto:nperez0111@gmail.com" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-mail-squared display-3"></v-icon>
                         </v-card-media>
@@ -97,7 +97,7 @@
                     </v-card>
                 </v-layout>
                 <v-layout class="flex md6 fullwidth">
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="https://github.com/nperez0111" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="https://github.com/nperez0111" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-github-squared display-3"></v-icon>
                         </v-card-media>
@@ -105,7 +105,7 @@
                             <h2>Github</h2>
                         </v-card-text>
                     </v-card>
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-linkedin-squared display-3"></v-icon>
                         </v-card-media>

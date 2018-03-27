@@ -1,8 +1,8 @@
 <template>
     <v-layout column justify-center align-center>
-        <Full-Height class="blue fullwidth" src="/trianglify.svg">
+        <Full-Height class="blue fullwidth page-1" parallax src="images/trianglify.svg">
             <v-layout column justify-center align-center class="px-2 my-5">
-                <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.lgAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
+                <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.mdAndUp,'display-3':$vuetify.breakpoint.smOnly, 'display-2':$vuetify.breakpoint.xsOnly}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
                 <h2 class="title text-xs-center mt-3">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
             </v-layout>
             <v-layout column :justify-space-around="$vuetify.breakpoint.mdAndDown" :justify-space-between="$vuetify.breakpoint.lgAndUp" align-center>
@@ -141,31 +141,31 @@ export default {
                 },
                 typerInstance: null,
                 projects: [{
-                    image: '/pianoserver.png',
+                    image: 'images/pianoserver.png',
                     title: 'Pianoserver',
                     description: 'Full integration of Pandora into your computer with notifications, shortcuts and a Web Interface.',
                     projectLink: 'https://github.com/nperez0111/pianoserver',
                     viewerLink: 'https://pianoserver.nickthesick.com/'
                 }, {
-                    image: '/sas.png',
+                    image: 'images/sas.png',
                     title: 'School For Advanced Studies Course Selecter',
                     description: 'This web app helps students pick their courses in a fast and efficient way compared to the previously atrocious system of cross-referencing multiple documents.',
                     projectLink: 'https://github.com/nperez0111/sas',
                     viewerLink: 'https://sas.nickthesick.comsas'
                 }, {
-                    image: '/dresscoderules.png',
+                    image: 'images/dresscoderules.png',
                     title: 'DressCodeRules - Hydra',
                     description: 'An internal use tool for DressCodeRules.com to aggregate product feeds to then be inserted into the WordPress site in a consistent format.',
                     projectLink: 'https://bitbucket.org/dresscoderules/hydra/overview',
                     viewerLink: 'http://imports.dresscoderules.com:333/hydra/#/'
                 }, {
-                    image: '/howwide.png',
+                    image: 'images/howwide.png',
                     title: 'How Wide Is It?',
                     description: 'Ever wondered the real dimensions of your monitor? Monitors are measured diagonally and this tool lets you see the real width and height of them.',
                     projectLink: 'https://github.com/nperez0111/howWideIsIt',
                     viewerLink: 'https://howwide.nickthesick.com'
                 }, {
-                    image: '/lightsource.png',
+                    image: 'images/lightsource.png',
                     title: 'LightSource SF Mounting Calculator',
                     description: 'This is an internal use tool for LightSource Sf, a printing company, to be able to accurately price their prints.',
                     viewerLink: 'http://calc.lightsourcesf.com/'
@@ -208,38 +208,9 @@ export default {
         }
 }
 </script>
-<style>
-.title-bar {
-    padding: 5px 0;
-    font-family: "Lucida Grande", sans-serif;
-    font-size: 0.75em;
-    text-align: center;
-    text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
-    background-color: #f8f8f8;
-    background-image: -webkit-linear-gradient(top, #e8e8e8, #bcbbbc);
-    background-image: -moz-linear-gradient(top, #e8e8e8, #bcbbbc);
-    background-image: linear-gradient(top, #e8e8e8, #bcbbbc);
-    box-shadow: inset rgba(255, 255, 255, 0.7) 0px 1px 1px;
-    border-bottom: #6a6a6a 1px solid;
-}
-
-.text-body {
-    min-height: 500px;
-    background-color: rgba(0, 0, 0, 0.85);
-    padding: 20px;
-    color: #f0f0f0;
-    text-shadow: #000 0px 1px 0px;
-    font-family: "Consolas", "Courier New", "Courier";
-    font-size: 1.45em;
-    line-height: 1.40em;
-    font-weight: 500;
-    text-align: left;
-    overflow: hidden;
-    -webkit-transition: all 0.5s ease-out;
-    -moz-transition: all 0.5s ease-out;
-    -ms-transition: all 0.5s ease-out;
-    -o-transition: all 0.5s ease-out;
-    transition: all 0.5s ease-out;
+<style lang="scss">
+.page-1 {
+    background-image: url('../static/images/trianglify.svg')
 }
 
 .text-editor-wrap {
@@ -257,16 +228,46 @@ export default {
     -ms-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
-}
-
-.typed-cursor {
-    opacity: 1;
-    font-weight: 100;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    -ms-animation: blink 0.7s infinite;
-    -o-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
+    .text-body {
+        min-height: 500px;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding: 20px;
+        color: #f0f0f0;
+        text-shadow: #000 0px 1px 0px;
+        font-family: "Consolas", "Courier New", "Courier";
+        font-size: 1.45em;
+        line-height: 1.40em;
+        font-weight: 500;
+        text-align: left;
+        overflow: hidden;
+        -webkit-transition: all 0.5s ease-out;
+        -moz-transition: all 0.5s ease-out;
+        -ms-transition: all 0.5s ease-out;
+        -o-transition: all 0.5s ease-out;
+        transition: all 0.5s ease-out;
+    }
+    .title-bar {
+        padding: 5px 0;
+        font-family: "Lucida Grande", sans-serif;
+        font-size: 0.75em;
+        text-align: center;
+        text-shadow: rgba(255, 255, 255, 0.8) 0px 1px 0px;
+        background-color: #f8f8f8;
+        background-image: -webkit-linear-gradient(top, #e8e8e8, #bcbbbc);
+        background-image: -moz-linear-gradient(top, #e8e8e8, #bcbbbc);
+        background-image: linear-gradient(top, #e8e8e8, #bcbbbc);
+        box-shadow: inset rgba(255, 255, 255, 0.7) 0px 1px 1px;
+        border-bottom: #6a6a6a 1px solid;
+    }
+    .typed-cursor {
+        opacity: 1;
+        font-weight: 100;
+        -webkit-animation: blink 0.7s infinite;
+        -moz-animation: blink 0.7s infinite;
+        -ms-animation: blink 0.7s infinite;
+        -o-animation: blink 0.7s infinite;
+        animation: blink 0.7s infinite;
+    }
 }
 
 @keyframes blink {
@@ -337,9 +338,6 @@ img.profile-img {
     max-width: 325px;
     width: 100%;
 }
-
-
-/* Change Autocomplete styles in Chrome*/
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,

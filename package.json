@@ -8,7 +8,10 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "build:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt build",
+    "generate:gh-pages": "DEPLOY_ENV=GH_PAGES nuxt generate"
   },
   "dependencies": {
     "nuxt": "^1.0.0",
@@ -27,6 +30,7 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "node-sass": "^4.8.3",
+    "push-dir": "^0.4.1",
     "sass-loader": "^6.0.7",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.1"

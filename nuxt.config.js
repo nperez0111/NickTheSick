@@ -1,7 +1,12 @@
 const nodeExternals = require('webpack-node-externals')
 const resolve = (dir) => require('path').join(__dirname, dir)
-
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES' ? {
+    router: {
+        base: '/NickTheSick/'
+    }
+} : {}
 module.exports = {
+    ...routerBase,
     /*
      ** Headers of the page
      */

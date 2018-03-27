@@ -62,9 +62,27 @@
                 </v-btn>
             </v-layout>
         </v-layout>
-        <v-layout class="fullwidth">
-            <v-layout class="md5 flex fullwidth green justify-center align-center">The Legend</v-layout>
-            <v-layout class="md7 flex fullwidth purple justify-center align-center">B</v-layout>
+        <v-layout class="fullwidth dark justify-center align-center" wrap>
+            <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
+                <h1 class="display-2 mx-5 text-xs-center">Contact</h1>
+            </v-layout>
+            <v-layout class="xs12 md5 justify-center align-center flex fullwidth px-5">
+                <v-form v-model="form.valid" class="fullwidth">
+                    <v-text-field label="Name" v-model="form.name" box required></v-text-field>
+                    <v-text-field label="E-mail" v-model="form.email" box :rules="form.emailRules" required></v-text-field>
+                    <v-text-field label="Message" v-model="form.message" textarea required></v-text-field>
+                </v-form>
+            </v-layout>
+            <v-layout class="xs12 md7 justify-center align-center flex fullwidth">
+                <v-btn type="email" href="mailto:nick@nickthesick.com" flat>
+                    Send me an Email
+                    <v-icon right>email</v-icon>
+                </v-btn>
+                <v-btn type="phone" href="tel:3052828358" flat>
+                    Text me
+                    <v-icon right>phone</v-icon>
+                </v-btn>
+            </v-layout>
         </v-layout>
     </v-layout>
 </template>
@@ -75,6 +93,16 @@ import Typer from 'typed.js'
 export default {
     data() {
             return {
+                form: {
+                    valid: false,
+                    message: '',
+                    name: '',
+                    email: '',
+                    emailRules: [
+                        v => !!v || 'E-mail is required',
+                        v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
+                    ]
+                },
                 typerInstance: null,
                 projects: [{
                     image: '/pianoserver.png',

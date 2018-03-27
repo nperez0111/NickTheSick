@@ -1,12 +1,11 @@
 <template>
     <v-layout column justify-center align-center>
         <Full-Height class="blue fullwidth" src="/trianglify.svg">
-            <v-layout column justify-center align-center class="my-4">
-                <h1 :class="{'text-xs-center':true, 'display-3':true, 'my-1':true}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
-                <h1 :class="{'text-xs-center':true, 'display-2':$vuetify.breakpoint.lgAndUp, 'display-3':$vuetify.breakpoint.xlAndUp,'display-1':$vuetify.breakpoint.mdAndDown,'mb-2':true}">I'm a full stack web developer.</h1>
-                <h2 class="title text-xs-center">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
+            <v-layout column justify-center align-center class="px-5 my-5">
+                <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.lgAndUp,'display-3':$vuetify.breakpoint.mdAndDown}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
+                <h2 class="title text-xs-center mt-3">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
             </v-layout>
-            <v-layout column justify-space-between align-center>
+            <v-layout column justify-end align-center>
                 <div class="text-editor-wrap">
                     <div ref="typerStrings" style="display:none">
                         <p> a Full Stack Web Developer</p>
@@ -25,7 +24,7 @@
                         <span class="white--text">I am </span><span ref="typer" class="white--text"></span>
                     </div>
                 </div>
-                <v-btn icon flat fab :class="{'ma-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.smAndDown}" @click="$vuetify.goTo($refs['page-2'])">
+                <v-btn icon flat fab :class="{'ma-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.mdAndDown}" @click="$vuetify.goTo($refs['page-2'])">
                     <v-icon class="display-3">keyboard_arrow_down</v-icon>
                 </v-btn>
             </v-layout>
@@ -62,26 +61,60 @@
                 </v-btn>
             </v-layout>
         </v-layout>
-        <v-layout class="fullwidth dark justify-center align-center" wrap>
+        <v-layout class="fullwidth dark" wrap>
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
-                <h1 class="display-2 mx-5 text-xs-center">Contact</h1>
+                <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>
             </v-layout>
-            <v-layout class="xs12 md5 justify-center align-center flex fullwidth px-5">
-                <v-form v-model="form.valid" class="fullwidth">
-                    <v-text-field label="Name" v-model="form.name" box required></v-text-field>
-                    <v-text-field label="E-mail" v-model="form.email" box :rules="form.emailRules" required></v-text-field>
-                    <v-text-field label="Message" v-model="form.message" textarea required></v-text-field>
+            <v-layout class="xs12 md7 justify-center align-center flex fullwidth px-5" wrap>
+                <v-form v-model="form.valid" class="fullwidth" ref="form" lazy-validation>
+                    <v-text-field label="Name" v-model="form.name" required :rules="[v => !!v || 'Name is required']" class="my-2"></v-text-field>
+                    <v-text-field label="E-mail" v-model="form.email" :rules="form.emailRules" required class="my-2"></v-text-field>
+                    <v-text-field label="Message" v-model="form.message" textarea required :rules="[v => !!v || 'Message is required']"></v-text-field>
+                    <v-layout>
+                        <v-spacer></v-spacer>
+                        <v-btn color="primary" @click="sendMessage" :loading="sendingMessage" :disabled="sendingMessage">Send Message
+                            <v-icon right>send</v-icon>
+                        </v-btn>
+                    </v-layout>
                 </v-form>
             </v-layout>
-            <v-layout class="xs12 md7 justify-center align-center flex fullwidth">
-                <v-btn type="email" href="mailto:nick@nickthesick.com" flat>
-                    Send me an Email
-                    <v-icon right>email</v-icon>
-                </v-btn>
-                <v-btn type="phone" href="tel:3052828358" flat>
-                    Text me
-                    <v-icon right>phone</v-icon>
-                </v-btn>
+            <v-layout class="xs12 md5 justify-center align-center flex column pt-1 pb-5 mb-2 pr-5">
+                <v-layout class="flex md6 fullwidth">
+                    <v-card class="flex md6 layout column justify-center align-center ma-3 text-xs-center" href="tel:3052828358" hover ripple>
+                        <v-card-media class="flex xs12">
+                            <v-icon class="icon-phone-squared display-3"></v-icon>
+                        </v-card-media>
+                        <v-card-text>
+                            <h2>Text</h2>
+                        </v-card-text>
+                    </v-card>
+                    <v-card class="flex md6 layout column justify-center align-center ma-3 text-xs-center" href="mailto:nperez0111@gmail.com" hover ripple>
+                        <v-card-media class="flex xs12">
+                            <v-icon class="icon-mail-squared display-3"></v-icon>
+                        </v-card-media>
+                        <v-card-text>
+                            <h2>Email</h2>
+                        </v-card-text>
+                    </v-card>
+                </v-layout>
+                <v-layout class="flex md6 fullwidth">
+                    <v-card class="flex md6 layout column justify-center align-center ma-3 text-xs-center" href="https://github.com/nperez0111" hover ripple>
+                        <v-card-media class="flex xs12">
+                            <v-icon class="icon-github-squared display-3"></v-icon>
+                        </v-card-media>
+                        <v-card-text>
+                            <h2>Github</h2>
+                        </v-card-text>
+                    </v-card>
+                    <v-card class="flex md6 layout column justify-center align-center ma-3 text-xs-center" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
+                        <v-card-media class="flex xs12">
+                            <v-icon class="icon-linkedin-squared display-3"></v-icon>
+                        </v-card-media>
+                        <v-card-text>
+                            <h2>Linkedin</h2>
+                        </v-card-text>
+                    </v-card>
+                </v-layout>
             </v-layout>
         </v-layout>
     </v-layout>
@@ -93,6 +126,7 @@ import Typer from 'typed.js'
 export default {
     data() {
             return {
+                sendingMessage: false,
                 form: {
                     valid: false,
                     message: '',
@@ -151,6 +185,24 @@ export default {
         },
         components: {
             "Full-Height": FullHeight
+        },
+        methods: {
+            sendMessage() {
+                if (this.$refs.form.validate()) {
+                    this.sendingMessage = true
+                    const {
+                        name,
+                        email,
+                        message
+                    } = this.form
+                    console.log({
+                        name,
+                        message,
+                        email
+                    })
+                }
+
+            }
         }
 }
 </script>
@@ -192,7 +244,7 @@ export default {
     display: block;
     margin: auto;
     width: 90%;
-    max-width: 800px;
+    max-width: 840px;
     margin: 15px;
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.8) 0px 20px 70px;
@@ -282,5 +334,20 @@ export default {
 img.profile-img {
     max-width: 325px;
     width: 100%;
+}
+
+
+/* Change Autocomplete styles in Chrome*/
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus input:-webkit-autofill,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    transition: background-color 5000s ease-in-out 0s;
+    -webkit-text-fill-color: #FFF !important;
 }
 </style>

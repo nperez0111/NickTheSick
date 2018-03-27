@@ -181,6 +181,10 @@ export default {
                 typeSpeed: 40,
                 backDelay: 2000,
             })
+            setTimeout(() => {
+                window.scrollTo(0, 1)
+                window.scrollTo(0, 0)
+            }, 300)
         },
         beforeDestroy() {
             this.typerInstance.destroy()
@@ -210,7 +214,8 @@ export default {
 </script>
 <style lang="scss">
 .page-1 {
-    background-image: url('../static/images/trianglify.svg')
+    background-image: url('../static/images/trianglify.svg');
+    background-size: cover;
 }
 
 .text-editor-wrap {

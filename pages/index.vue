@@ -1,11 +1,11 @@
 <template>
     <v-layout column justify-center align-center>
         <Full-Height class="blue fullwidth" src="/trianglify.svg">
-            <v-layout column justify-center align-center class="px-5 my-5">
-                <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.lgAndUp,'display-3':$vuetify.breakpoint.mdAndDown}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
+            <v-layout column justify-center align-center class="px-2 my-5">
+                <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.lgAndUp,'display-2':$vuetify.breakpoint.mdAndDown}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
                 <h2 class="title text-xs-center mt-3">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
             </v-layout>
-            <v-layout column justify-end align-center>
+            <v-layout column :justify-space-around="$vuetify.breakpoint.mdAndDown" :justify-space-between="$vuetify.breakpoint.lgAndUp" align-center>
                 <div class="text-editor-wrap">
                     <div ref="typerStrings" style="display:none">
                         <p> a Full Stack Web Developer</p>
@@ -31,7 +31,7 @@
         </Full-Height>
         <v-layout class="fullwidth blue darken-3 wrap py-5" ref="page-2">
             <v-layout class="xs12 flex fullwidth justify-center align-center pt-3 pb-5">
-                <h1 class="display-2 mx-5 text-xs-center">I am Nick the Sick A.K.A Nicholas Perez</h1>
+                <h1 class="display-2 mx-5 text-xs-center">Who is Nick the Sick?</h1>
             </v-layout>
             <v-layout class="sm12 md5 flex fullwidth justify-center align-center py-5">
                 <div class="avatar my-5">
@@ -39,15 +39,14 @@
                 </div>
             </v-layout>
             <v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-5">
-                <p class="headline">I am a software developer who is passionate about technology and making new things. I specialize in front end web apps and websites, my genuine passion is that I want to make software to help make people’s lives easier. I have a dream wherein one day someone will show me either a product telling me how useful it is to them and to be able to say to them “I made that”.</br>
-                    I have several years experience in making websites and web apps and it is where I am most comfortable (although I am capable in other fields such as scripts and servers).</p>
+                <p class="headline">I am a software developer who is passionate about using technology to make people's lives easier. I specialize in front end web apps and websites, but don't let that pigeonhole me as <i>only</i> a web developer. My goal is that one day someone will show me a product raving about how useful it is to them and to be able to reply "I made that".</p>
             </v-layout>
         </v-layout>
         <v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                 <h1 class="display-2 mx-5 text-xs-center">Recent Projects</h1>
             </v-layout>
-            <v-layout class="md6 lg4 xl3 flex fullwidth justify-center align-center column pt-1 pb-5 px-5" v-for="item in projects" :key="item.image">
+            <v-layout class="md6 lg4 xl3 flex fullwidth justify-center align-center column pt-1 pb-5 px-2" v-for="item in projects" :key="item.image">
                 <a :href="item.viewerLink||item.projectLink"><img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}"></a>
                 <h2 class="mt-1 mb-1 headline text-xs-center" v-text="item.title"></h2>
                 <h3 class="text-xs-center subheading mb-3" v-text="item.description"></h3>
@@ -65,7 +64,7 @@
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                 <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>
             </v-layout>
-            <v-layout class="xs12 md7 justify-center align-center flex fullwidth px-5" wrap>
+            <v-layout class="xs12 md7 justify-center align-center flex fullwidth px-5 mb-5" wrap>
                 <v-form v-model="form.valid" class="fullwidth" ref="form" lazy-validation>
                     <v-text-field label="Name" v-model="form.name" required :rules="[v => !!v || 'Name is required']" class="my-2"></v-text-field>
                     <v-text-field label="E-mail" v-model="form.email" :rules="form.emailRules" required class="my-2"></v-text-field>
@@ -78,10 +77,10 @@
                     </v-layout>
                 </v-form>
             </v-layout>
-            <v-layout class="xs12 md5 justify-center align-center flex column pt-1 pb-5 mb-3 pr-5">
+            <v-layout class="xs12 md5 justify-center align-center flex column pt-1 pb-5 mb-3 px-5">
                 <v-layout class="flex md6 fullwidth">
                     <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="tel:3052828358" hover ripple>
-                        <v-card-media class="flex xs12">
+                        <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-phone-squared display-3"></v-icon>
                         </v-card-media>
                         <v-card-text>
@@ -89,7 +88,7 @@
                         </v-card-text>
                     </v-card>
                     <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="mailto:nperez0111@gmail.com" hover ripple>
-                        <v-card-media class="flex xs12">
+                        <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-mail-squared display-3"></v-icon>
                         </v-card-media>
                         <v-card-text>
@@ -99,7 +98,7 @@
                 </v-layout>
                 <v-layout class="flex md6 fullwidth">
                     <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="https://github.com/nperez0111" hover ripple>
-                        <v-card-media class="flex xs12">
+                        <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-github-squared display-3"></v-icon>
                         </v-card-media>
                         <v-card-text>
@@ -107,7 +106,7 @@
                         </v-card-text>
                     </v-card>
                     <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
-                        <v-card-media class="flex xs12">
+                        <v-card-media class="flex xs12 mt-3">
                             <v-icon class="icon-linkedin-squared display-3"></v-icon>
                         </v-card-media>
                         <v-card-text>
@@ -115,6 +114,9 @@
                         </v-card-text>
                     </v-card>
                 </v-layout>
+            </v-layout>
+            <v-layout class="xs12 justify-center align-center headline">
+                Made by:&nbsp;<span class="blue--text">Nick the Sick</span>
             </v-layout>
         </v-layout>
     </v-layout>
@@ -222,7 +224,7 @@ export default {
 }
 
 .text-body {
-    height: 400px;
+    min-height: 500px;
     background-color: rgba(0, 0, 0, 0.85);
     padding: 20px;
     color: #f0f0f0;

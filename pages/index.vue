@@ -33,13 +33,13 @@
             <v-layout class="xs12 flex fullwidth justify-center align-center pt-3 pb-5">
                 <h1 class="display-2 mx-5 text-xs-center">Who is Nick the Sick?</h1>
             </v-layout>
-            <v-layout class="sm12 md5 flex fullwidth justify-center align-center py-5">
-                <div class="avatar my-5">
+            <v-layout :class="{sm12:true, md5:true, flex:true, fullwidth:true, 'justify-center':true, 'align-center':true, 'py-5':$vuetify.breakpoint.mdAndUp,'py-2':$vuetify.breakpoint.mdAndDown}">
+                <div :class="{avatar:true, 'my-5':$vuetify.breakpoint.mdAndUp,'my-2':$vuetify.breakpoint.mdAndDown}">
                     <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-3 profile-img">
                 </div>
             </v-layout>
-            <v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-5">
-                <p class="headline">I am a software developer who is passionate about using technology to make people's lives easier. I specialize in front end web apps and websites, but don't let that pigeonhole me as <i>only</i> a web developer. My goal is that one day someone will show me a product raving about how useful it is to them and to be able to reply "I made that".</p>
+            <v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-4">
+                <p :class="{headline:$vuetify.breakpoint.mdAndUp,'body-2':$vuetify.breakpoint.smAndDown,bump:true,'text-xs-center':true,'text-md-left':true}">I am a software developer who is passionate about using technology to make people's lives easier. I specialize in front end web apps and websites, but don't let that pigeonhole me as <i>only</i> a web developer. My dream is that one day someone will show me a product raving about how useful it is to them and to be able to reply "I made that".</p>
             </v-layout>
         </v-layout>
         <v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
@@ -354,5 +354,8 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: #FFF !important;
+}
+.bump{
+  font-size: 125% !important;
 }
 </style>

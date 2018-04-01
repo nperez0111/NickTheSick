@@ -137,7 +137,8 @@ export default {
                     emailRules: [
                         v => !!v || 'E-mail is required',
                         v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-                    ]
+                    ],
+                    status: 'writing'
                 },
                 typerInstance: null,
                 projects: [{
@@ -201,10 +202,28 @@ export default {
                         email,
                         message
                     } = this.form
-                    console.log({
+                    console.log(window.location.hostname, {
                         name,
                         message,
                         email
+                    })
+                    fetch(window.location.origin + '/mail.php', {
+                        method: 'post',
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            message
+                        }),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then((resp) => {
+                        console.log(resp.text())
+                        this.sendingMessage = false
+                        this.form.status = 'success'
+                    }).catch(() => {
+                        this.sendingMessage = false
+                        this.form.status = 'failed'
                     })
                 }
 

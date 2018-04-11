@@ -31,7 +31,7 @@ $headers = "From: nickthesick@nickthesick.com\r\n";
 $headers .= "Reply-To: ".$email."\r\n";
 $headers .= "X-Mailer: PHP/".phpversion();
 
-$message = wordwrap($message, 70)."This message is from: ".$name."\n With the email: ".$email."\n On: ".date("Y-m-d h:i:sa")."\n";
+$message = wordwrap($message, 70)."\nThis message is from: ".$name."\n With the email: ".$email."\n On: ".date("Y-m-d h:i:sa")."\n";
 // send email
 mail($to, $subject, $message, $headers);
 echo "{\"success\":true}";

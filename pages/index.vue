@@ -38,8 +38,9 @@
                     <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-3 profile-img">
                 </div>
             </v-layout>
-            <v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-4">
+            <v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-4 column">
                 <p :class="{headline:$vuetify.breakpoint.mdAndUp,'body-2':$vuetify.breakpoint.smAndDown,bump:true,'text-xs-center':true,'text-md-left':true}">I am a software developer who is passionate about using technology to make people's lives easier. I specialize in front end web apps and websites, but don't let that pigeonhole me as <i>only</i> a web developer. My dream is that one day someone will show me a product raving about how useful it is to them and to be able to reply "I made that".</p>
+                <p :class="{headline:$vuetify.breakpoint.mdAndUp,'body-2':$vuetify.breakpoint.smAndDown,bump:true,'text-xs-center':true,'text-md-left':true}">I am a person who wholeheartedly enjoys creating software, I love the idea that I can make something which simply did not exist and could not have existed without me. I have a knack for learning new techniques and have great pride in my work so I try to deliver the best that I can. I grew up in Miami where there was not much of a "Tech" scene, so I moved to San Francisco to hopefully be able to be apart of the creation of great software. </p>
             </v-layout>
         </v-layout>
         <v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
@@ -137,7 +138,8 @@ export default {
                     emailRules: [
                         v => !!v || 'E-mail is required',
                         v => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) || 'E-mail must be valid'
-                    ]
+                    ],
+                    status: 'writing'
                 },
                 typerInstance: null,
                 projects: [{
@@ -201,10 +203,28 @@ export default {
                         email,
                         message
                     } = this.form
-                    console.log({
+                    console.log(window.location.hostname, {
                         name,
                         message,
                         email
+                    })
+                    fetch(window.location.origin + '/mail.php', {
+                        method: 'post',
+                        body: JSON.stringify({
+                            name,
+                            email,
+                            message
+                        }),
+                        headers: {
+                            "Content-Type": "application/json"
+                        }
+                    }).then((resp) => {
+                        console.log(resp.text())
+                        this.sendingMessage = false
+                        this.form.status = 'success'
+                    }).catch(() => {
+                        this.sendingMessage = false
+                        this.form.status = 'failed'
                     })
                 }
 
@@ -355,7 +375,8 @@ select:-webkit-autofill:focus {
     transition: background-color 5000s ease-in-out 0s;
     -webkit-text-fill-color: #FFF !important;
 }
-.bump{
-  font-size: 125% !important;
+
+.bump {
+    font-size: 125% !important;
 }
 </style>

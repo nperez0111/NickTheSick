@@ -16,10 +16,14 @@ export default {
         this.$toolbar.onchange(cur=>{
             this.toolbarActive=cur
           })
+        let windowHeight=900
+        if(process.browser){
+            windowHeight=window.innerHeight
+        }
         return {
             windowSize: {
                 x: 0,
-                y: 0
+                y: windowHeight
             },
             classes: [],
             toolbarActive:this.$toolbar.active

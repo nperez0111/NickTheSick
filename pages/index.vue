@@ -60,7 +60,7 @@
                 </v-btn>
             </v-layout>
         </v-layout>
-        <v-card :class="{'mx-4':$vuetify.breakpoint.smAndUp, 'mt-5':true, 'mb-4':true, grey:true, 'lighten-3':true, fullwidth:$vuetify.breakpoint.xs,'supa-shadow':true}">
+        <v-card :class="{'mx-4':$vuetify.breakpoint.smAndUp, 'mt-5':true, 'mb-4':true, grey:true, 'lighten-3':true, fullwidth:$vuetify.breakpoint.xs,'supa-shadow':true,'contact-form':true}">
             <v-layout class="fullwidth pb-5" wrap>
                 <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                     <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>
@@ -174,7 +174,7 @@ export default {
                 }, {
                     image: 'images/lightsource.png',
                     title: 'LightSource SF Mounting Calculator',
-                    description: 'This is an internal use tool for LightSource Sf, a printing company, to be able to accurately price their prints.',
+                    description: 'This is an internal use tool for LightSource SF, a printing company, to be able to accurately price their prints.',
                     viewerLink: 'http://calc.lightsourcesf.com/'
                 }]
             }
@@ -411,7 +411,10 @@ select:-webkit-autofill:focus {
     padding: 0 !important;
 }
 
-.hotLinks .card__text {
-    padding: 10px 0 !important;
+.contact-form {
+    min-width: 80%;
+    .hotLinks .card__text {
+        padding: 10px 0 !important;
+    }
 }
 </style>

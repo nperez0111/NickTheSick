@@ -1,6 +1,6 @@
 <template>
-    <v-layout column justify-center align-center>
-        <Full-Height class="blue fullwidth page-1" parallax src="images/trianglify.svg">
+    <v-layout column justify-center align-center class="indigo darken-3">
+        <Full-Height class="fullwidth page-1" parallax src="images/trianglify.svg">
             <v-layout column justify-center align-center class="px-2 my-5">
                 <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.mdAndUp,'display-3':$vuetify.breakpoint.smOnly, 'display-2':$vuetify.breakpoint.xsOnly}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
                 <h2 class="title text-xs-center mt-3">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
@@ -24,18 +24,19 @@
                         <span class="white--text">I am </span><span ref="typer" class="white--text"></span>
                     </div>
                 </div>
-                <v-btn icon flat fab :class="{'ma-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.mdAndDown}" @click="$vuetify.goTo($refs['page-2'])">
+                <v-btn icon flat fab :class="{'ma-4':$vuetify.breakpoint.mdAndUp,'mb-3':$vuetify.breakpoint.mdAndDown,'lower-hover':true}" @click="$vuetify.goTo($refs['page-2'])">
                     <v-icon class="display-3">keyboard_arrow_down</v-icon>
                 </v-btn>
             </v-layout>
         </Full-Height>
-        <v-layout class="fullwidth blue darken-3 wrap py-5" ref="page-2">
+        <v-card class="mx-4 pull-up white--text pa-1 blue darken-3" raised>
+        <v-layout class="fullwidth wrap py-5" ref="page-2">
             <v-layout class="xs12 flex fullwidth justify-center align-center pt-3 pb-5">
                 <h1 class="display-2 mx-5 text-xs-center">Who is Nick the Sick?</h1>
             </v-layout>
             <v-layout :class="{sm12:true, md5:true, flex:true, fullwidth:true, 'justify-center':true, 'align-center':true, 'py-5':$vuetify.breakpoint.mdAndUp,'py-2':$vuetify.breakpoint.mdAndDown}">
                 <div :class="{avatar:true, 'my-5':$vuetify.breakpoint.mdAndUp,'my-2':$vuetify.breakpoint.mdAndDown}">
-                    <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-3 profile-img">
+                    <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-3 profile-img raise-hover">
                 </div>
             </v-layout>
             <v-layout class="sm12 md7 flex fullwidth justify-center align-center py-5 px-4 column">
@@ -43,25 +44,27 @@
                 <p :class="{headline:$vuetify.breakpoint.mdAndUp,'body-2':$vuetify.breakpoint.smAndDown,bump:true,'text-xs-center':true,'text-md-left':true}">I am a person who wholeheartedly enjoys creating software, I love the idea that I can make something which simply did not exist and could not have existed without me. I have a knack for learning new techniques and have great pride in my work so I try to deliver the best that I can. I grew up in Miami where there was not much of a "Tech" scene, so I moved to San Francisco to hopefully be able to be apart of the creation of great software. </p>
             </v-layout>
         </v-layout>
-        <v-layout class="fullwidth indigo darken-3 justify-center align-center" wrap>
+    </v-card>
+        <v-layout class="fullwidth indigo darken-3 justify-center align-center flat white--text" wrap>
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                 <h1 class="display-2 mx-5 text-xs-center">Recent Projects</h1>
             </v-layout>
             <v-layout class="md6 lg4 xl3 flex fullwidth justify-center align-center column pt-1 pb-5 px-2" v-for="item in projects" :key="item.image">
-                <a :href="item.viewerLink||item.projectLink"><img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}"></a>
+                <a :href="item.viewerLink||item.projectLink" class="raise-hover"><img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}"></a>
                 <h2 class="mt-1 mb-1 headline text-xs-center" v-text="item.title"></h2>
                 <h3 class="text-xs-center subheading mb-3" v-text="item.description"></h3>
-                <v-btn :href="item.projectLink" v-if="item.projectLink" color="primary">
-                    Go see the Project
+                <v-btn :href="item.projectLink" v-if="item.projectLink" color="primary" class="raise-hover">
+                    Show Me the Code
                     <v-icon right>launch</v-icon>
                 </v-btn>
-                <v-btn :href="item.viewerLink" v-else color="primary">
+                <v-btn :href="item.viewerLink" v-else color="primary" class="raise-hover">
                     Go see the Website
                     <v-icon right>launch</v-icon>
                 </v-btn>
             </v-layout>
         </v-layout>
-        <v-layout class="fullwidth dark pb-5" wrap>
+        <v-card class="mx-4 pull-up mt-5 mb-4 cyan lighten-4" raised>
+        <v-layout class="fullwidth pb-5" wrap>
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                 <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>
             </v-layout>
@@ -72,54 +75,59 @@
                     <v-text-field label="Message" v-model="form.message" textarea required :rules="[v => !!v || 'Message is required']"></v-text-field>
                     <v-layout>
                         <v-spacer></v-spacer>
-                        <v-btn color="primary" @click="sendMessage" :loading="sendingMessage" :disabled="sendingMessage">Send Message
-                            <v-icon right>send</v-icon>
+                        <v-btn color="primary white--text" @click="sendMessage" :loading="sendingMessage" :disabled="sendingMessage" class="raise-hover">Send Message
+                            <v-icon right color="green lighten-2">send</v-icon>
                         </v-btn>
                     </v-layout>
                 </v-form>
             </v-layout>
             <v-layout class="xs12 md5 justify-center align-center flex column pt-1 pb-5 mb-3 px-5">
                 <v-layout class="flex md6 fullwidth">
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="tel:3052828358" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="tel:3052828358" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
-                            <v-icon class="icon-phone-squared display-3"></v-icon>
+                            <v-icon class="icon-phone-squared display-3 white--text"></v-icon>
                         </v-card-media>
                         <v-card-text>
-                            <h2>Text</h2>
+                            <h2>Phone</h2>
+                            <p>(305)-282-8358</p>
                         </v-card-text>
                     </v-card>
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="mailto:nperez0111@gmail.com" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="mailto:nperez0111@gmail.com" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
-                            <v-icon class="icon-mail-squared display-3"></v-icon>
+                            <v-icon class="icon-mail-squared display-3 white--text"></v-icon>
                         </v-card-media>
                         <v-card-text>
                             <h2>Email</h2>
+                            <p>nperez0111@gmail.com</p>
                         </v-card-text>
                     </v-card>
                 </v-layout>
                 <v-layout class="flex md6 fullwidth">
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="https://github.com/nperez0111" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="https://github.com/nperez0111" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
-                            <v-icon class="icon-github-squared display-3"></v-icon>
+                            <v-icon class="icon-github-squared display-3 white--text"></v-icon>
                         </v-card-media>
                         <v-card-text>
                             <h2>Github</h2>
+                            <p>@nperez0111</p>
                         </v-card-text>
                     </v-card>
-                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
+                    <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
                         <v-card-media class="flex xs12 mt-3">
-                            <v-icon class="icon-linkedin-squared display-3"></v-icon>
+                            <v-icon class="icon-linkedin-squared display-3 white--text"></v-icon>
                         </v-card-media>
                         <v-card-text>
                             <h2>Linkedin</h2>
+                            <p>Click here</p>
                         </v-card-text>
                     </v-card>
                 </v-layout>
             </v-layout>
             <v-layout class="xs12 justify-center align-center headline">
-                Made by:&nbsp;<span class="blue--text">Nick the Sick</span>
+                Made by:&nbsp;<span class="black--text">Nick the Sick</span>
             </v-layout>
         </v-layout>
+    </v-card>
     </v-layout>
 </template>
 <script>
@@ -362,6 +370,7 @@ export default {
 img.profile-img {
     max-width: 325px;
     width: 100%;
+    border:2px solid #FFF;
 }
 
 input:-webkit-autofill,
@@ -378,5 +387,18 @@ select:-webkit-autofill:focus {
 
 .bump {
     font-size: 125% !important;
+}
+.raise-hover, .lower-hover{
+    transition:all 0.5s;
+}
+.raise-hover:hover{
+    transform:translateY(-8px);
+}
+.lower-hover:hover{
+    transform:translateY(6px);
+}
+.pull-up{
+    position:relative;
+    top:-16px;
 }
 </style>

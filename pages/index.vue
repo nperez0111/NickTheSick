@@ -29,8 +29,8 @@
                 </v-btn>
             </v-layout>
         </Full-Height>
-        <v-card class="mx-4 pull-up white--text pa-1 blue darken-3" raised>
-        <v-layout class="fullwidth wrap py-5" ref="page-2">
+        <v-card class="mx-4 pull-up white--text pa-1 blue darken-3" raised ref="page-2">
+        <v-layout class="fullwidth wrap py-5">
             <v-layout class="xs12 flex fullwidth justify-center align-center pt-3 pb-5">
                 <h1 class="display-2 mx-5 text-xs-center">Who is Nick the Sick?</h1>
             </v-layout>
@@ -63,7 +63,7 @@
                 </v-btn>
             </v-layout>
         </v-layout>
-        <v-card class="mx-4 pull-up mt-5 mb-4 cyan lighten-4" raised>
+        <v-card class="mx-4 pull-up mt-5 mb-4 blue-grey lighten-3" raised>
         <v-layout class="fullwidth pb-5" wrap>
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                 <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>

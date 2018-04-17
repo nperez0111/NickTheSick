@@ -11,7 +11,7 @@ module.exports = {
      ** Headers of the page
      */
     head: {
-        title: 'nickthesick',
+        title: "Nicholas Perez's portfolio showcasing Web Apps and Websites",
         meta: [{
                 charset: 'utf-8'
             },
@@ -20,10 +20,15 @@ module.exports = {
                 content: 'width=device-width, initial-scale=1'
             },
             {
+                name: 'keywords',
+                content: 'portfolio nick the sick Nicholas Perez web app website developer full stack front end'
+            },
+            {
                 hid: 'description',
                 name: 'description',
                 content: "Nicholas Perez, a web developer based in San Francisco. A personal website showcasing some of his most recent work and the ability to contact him for hire."
-            }, {
+            },
+            {
                 name: "google-site-verification",
                 content: "79NuX7KX9JZo3IacoIXgkrLbpfWl4g-PnsigNdBA3cU"
             }

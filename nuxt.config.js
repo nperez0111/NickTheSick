@@ -22,7 +22,7 @@ module.exports = {
             {
                 hid: 'description',
                 name: 'description',
-                content: "Nick the Sick's Personal Website"
+                content: "Nicholas Perez, a web developer based in San Francisco. A personal website showcasing some of his most recent work and the ability to contact him for hire."
             }, {
                 name: "google-site-verification",
                 content: "79NuX7KX9JZo3IacoIXgkrLbpfWl4g-PnsigNdBA3cU"

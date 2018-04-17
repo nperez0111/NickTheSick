@@ -150,31 +150,31 @@ export default {
                 projects: [{
                     image: 'images/pianoserver.png',
                     title: 'Pianoserver',
-                    description: 'Full integration of Pandora into your computer with notifications, shortcuts and a Web Interface.',
+                    description: 'Full integration of Pandora into your computer with notifications, shortcuts and a web interface.',
                     projectLink: 'https://github.com/nperez0111/pianoserver',
                     viewerLink: 'https://pianoserver.nickthesick.com/'
                 }, {
                     image: 'images/sas.png',
                     title: 'School For Advanced Studies Course Selecter',
-                    description: 'This web app helps students pick their courses in a fast and efficient way compared to the previously atrocious system of cross-referencing multiple documents.',
+                    description: 'A web app to help students pick their courses in a fast and efficient way compared to the previously atrocious system of cross-referencing multiple documents.',
                     projectLink: 'https://github.com/nperez0111/sas',
                     viewerLink: 'https://sas.nickthesick.comsas'
                 }, {
                     image: 'images/dresscoderules.png',
                     title: 'DressCodeRules - Hydra',
-                    description: 'An internal use tool for DressCodeRules.com to aggregate product feeds to then be inserted into the WordPress site in a consistent format.',
+                    description: 'An internal tool for DressCodeRules.com to aggregate product feeds to then be inserted into the WordPress site in a consistent format.',
                     projectLink: 'https://bitbucket.org/dresscoderules/hydra/overview',
                     viewerLink: 'http://imports.dresscoderules.com:333/hydra/#/'
                 }, {
                     image: 'images/howwide.png',
                     title: 'How Wide Is It?',
-                    description: 'Ever wondered the real dimensions of your monitor? Monitors are measured diagonally and this tool lets you see the real width and height of them.',
+                    description: 'Did you know that monitors are measured diagonally? This tool lets you see the real width and height of them.',
                     projectLink: 'https://github.com/nperez0111/howWideIsIt',
                     viewerLink: 'https://howwide.nickthesick.com'
                 }, {
                     image: 'images/lightsource.png',
                     title: 'LightSource SF Mounting Calculator',
-                    description: 'This is an internal use tool for LightSource SF, a printing company, to be able to accurately price their prints.',
+                    description: 'This is an internal tool for LightSource SF, a printing company, to accurately price prints for their customers.',
                     viewerLink: 'http://calc.lightsourcesf.com/'
                 }]
             }

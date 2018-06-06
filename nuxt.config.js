@@ -38,6 +38,9 @@ module.exports = {
             { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' }
         ]
     },
+    modules: [
+        ['@nuxtjs/pwa', { icon: false }]
+    ],
     plugins: ['~/plugins/vuetify.js', '~/plugins/toolbar.js', { src: '~plugins/ga.js', ssr: false }],
     css: [
         '~/assets/style/app.styl',

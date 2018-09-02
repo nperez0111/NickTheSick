@@ -69,7 +69,7 @@
                     <v-form v-model="form.valid" class="xs11 flex" ref="form" lazy-validation>
                         <v-text-field label="Name" v-model="form.name" required :rules="[v => !!v || 'Name is required']" class="my-2"></v-text-field>
                         <v-text-field label="E-mail" v-model="form.email" :rules="form.emailRules" required class="my-2"></v-text-field>
-                        <v-text-field label="Message" v-model="form.message" textarea required :rules="[v => !!v || 'Message is required']"></v-text-field>
+                        <v-textarea label="Message" v-model="form.message" required :rules="[v => !!v || 'Message is required']"></v-textarea>
                         <v-layout>
                             <v-spacer></v-spacer>
                             <v-btn color="primary white--text" @click="sendMessage" :loading="sendingMessage" :disabled="sendingMessage" class="raise-hover">Send Message

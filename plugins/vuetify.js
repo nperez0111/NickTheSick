@@ -12,7 +12,8 @@ import {
     VToolbar,
     VParallax,
     VForm,
-    VTextField
+    VTextField,
+    VTextarea,
 } from 'vuetify'
 
 Vue.use(Vuetify, {
@@ -28,6 +29,7 @@ Vue.use(Vuetify, {
         VToolbar,
         VParallax,
         VForm,
-        VTextField
+        VTextField,
+        VTextarea,
     }
 })

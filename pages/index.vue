@@ -1,6 +1,6 @@
 <template>
     <v-layout column justify-center align-center class="indigo darken-3">
-        <Full-Height class="fullwidth page-1" parallax src="images/trianglify.svg">
+        <full-height class="fullwidth page-1" parallax src="images/trianglify.svg">
             <v-layout column justify-center align-center class="px-2 my-5">
                 <h1 :class="{'text-xs-center':true, 'display-5':$vuetify.breakpoint.xlAndUp, 'display-4':$vuetify.breakpoint.mdAndUp,'display-3':$vuetify.breakpoint.smOnly, 'display-2':$vuetify.breakpoint.xsOnly}">I'm <span class="black--text">Nicholas Perez</span>.</h1>
                 <h2 class="title text-xs-center mt-3">To create something that makes people wonder how they ever lived without it, is my goal.</h2>
@@ -25,12 +25,12 @@
                     </div>
                 </div>
             </v-layout>
-        </Full-Height>
+        </full-height>
         <v-card :class="{'mx-5':$vuetify.breakpoint.smAndUp, 'pull-up':$vuetify.breakpoint.smAndUp, 'pa-1':$vuetify.breakpoint.smAndUp, grey:true, 'lighten-3':true, 'supa-shadow':true}" ref="page-2">
-            <v-layout class="fullwidth wrap py-5">
-                <v-layout class="xs12 flex fullwidth justify-center align-center pt-3 pb-5">
-                    <h1 class="display-2 mx-5 text-xs-center">Who are you?</h1>
-                </v-layout>
+            <v-card class="layout justify-center align-center py-2 white card-popout-title">
+                <h1 class="display-2 mx-5 text-xs-center">Who are you?</h1>
+            </v-card>
+            <v-layout class="fullwidth wrap pb-5">
                 <v-layout :class="{sm12:true, md5:true,xl6:true, flex:true, fullwidth:true, 'justify-center':true, 'align-center':true, 'py-5':$vuetify.breakpoint.mdAndUp,'py-2':$vuetify.breakpoint.mdAndDown}">
                     <div :class="{avatar:true, 'my-5':$vuetify.breakpoint.mdAndUp,'my-2':$vuetify.breakpoint.mdAndDown}">
                         <img src="https://image.shutterstock.com/mosaic_250/0/0/518740741.jpg" class="elevation-3 profile-img raise-hover">
@@ -42,14 +42,14 @@
                 </v-layout>
             </v-layout>
         </v-card>
-        <v-layout class="fullwidth indigo darken-3 justify-center align-center flat white--text" wrap>
+        <v-layout class="fullwidth indigo darken-3 justify-center align-start flat white--text mb-5" wrap>
             <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
                 <h1 class="display-2 mx-5 text-xs-center">Recent Projects</h1>
             </v-layout>
             <v-layout class="md6 lg4 xl3 flex fullwidth justify-center align-center column pt-1 pb-5 px-2" v-for="item in projects" :key="item.image">
                 <a :href="item.viewerLink||item.projectLink" class="raise-hover"><img :src="item.image" :alt="item.title + ' user interface image'" :class="{fullwidth:true, 'elevation-1':item.shadow}"></a>
                 <h2 class="mt-1 mb-1 headline text-xs-center" v-text="item.title"></h2>
-                <h3 class="text-xs-center subheading mb-3" v-text="item.description"></h3>
+                <h3 class="text-xs-center subheading mb-3 px-2" v-text="item.description"></h3>
                 <v-btn :href="item.projectLink" v-if="item.projectLink" color="primary" class="raise-hover">
                     Show Me the Code
                     <v-icon right>launch</v-icon>
@@ -60,11 +60,11 @@
                 </v-btn>
             </v-layout>
         </v-layout>
-        <v-card :class="{'mx-4':$vuetify.breakpoint.smAndUp, 'mt-5':true, 'mb-4':true, grey:true, 'lighten-3':true, fullwidth:$vuetify.breakpoint.xs,'supa-shadow':true,'contact-form':true}">
-            <v-layout class="fullwidth pb-5" wrap>
-                <v-layout class="xs12 flex fullwidth justify-center align-center py-5">
-                    <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>
-                </v-layout>
+        <v-card :class="{'mx-4':$vuetify.breakpoint.smAndUp, 'mt-5':true, 'pt-1':true, 'mb-4':true, grey:true, 'lighten-2':true, fullwidth:$vuetify.breakpoint.xs,'supa-shadow':true,'contact-form':true}">
+            <v-card class="layout fullwidth justify-center align-center py-2 white card-popout-title">
+                <h1 class="display-2 mx-5 text-xs-center">Contact Me</h1>
+            </v-card>
+            <v-layout class="pb-5" wrap>
                 <v-layout :class="{xs12:true, md7:true, 'justify-center':true, 'align-center':true, flex:true, fullwidth:true, 'px-5':$vuetify.breakpoint.smAndUp,'px-2':$vuetify.breakpoint.xsAndUp, 'mb-5':true}" wrap>
                     <v-form v-model="form.valid" class="xs11 flex" ref="form" lazy-validation>
                         <v-text-field label="Name" v-model="form.name" required :rules="[v => !!v || 'Name is required']" class="my-2"></v-text-field>
@@ -80,7 +80,7 @@
                 </v-layout>
                 <v-layout :class="{xs12:true, md5:true, 'justify-center':true, 'align-center':true, flex:true, column:true, 'pt-1':true, 'pb-5':true, 'mb-3':true, 'px-5':$vuetify.breakpoint.smAndUp,hotLinks:true}">
                     <v-layout class="flex md6 fullwidth">
-                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="tel:3052828358" hover ripple>
+                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover lighten-hover grey darken-4 white--text" href="tel:3052828358" hover ripple>
                             <v-card-media class="flex xs12 mt-3">
                                 <v-icon class="icon-phone-squared display-3 white--text"></v-icon>
                             </v-card-media>
@@ -89,7 +89,7 @@
                                 <p>(305)-282-8358</p>
                             </v-card-text>
                         </v-card>
-                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="mailto:nperez0111@gmail.com" hover ripple>
+                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover lighten-hover grey darken-4 white--text" href="mailto:nperez0111@gmail.com" hover ripple>
                             <v-card-media class="flex xs12 mt-3">
                                 <v-icon class="icon-mail-squared display-3 white--text"></v-icon>
                             </v-card-media>
@@ -100,7 +100,7 @@
                         </v-card>
                     </v-layout>
                     <v-layout class="flex md6 fullwidth">
-                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="https://github.com/nperez0111" hover ripple>
+                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover lighten-hover grey darken-4 white--text" href="https://github.com/nperez0111" hover ripple>
                             <v-card-media class="flex xs12 mt-3">
                                 <v-icon class="icon-github-squared display-3 white--text"></v-icon>
                             </v-card-media>
@@ -109,7 +109,7 @@
                                 <p>@nperez0111</p>
                             </v-card-text>
                         </v-card>
-                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover grey darken-4 white--text" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
+                        <v-card class="flex md6 layout column justify-center align-center ma-2 text-xs-center fullwidth raise-hover lighten-hover grey darken-4 white--text" href="https://www.linkedin.com/in/nicholas-perez-215262124" hover ripple>
                             <v-card-media class="flex xs12 mt-3">
                                 <v-icon class="icon-linkedin-squared display-3 white--text"></v-icon>
                             </v-card-media>
@@ -148,6 +148,11 @@ export default {
                 },
                 typerInstance: null,
                 projects: [{
+                    image: 'images/cerebra.png',
+                    title: 'Cerebra',
+                    description: `Cerebra is a cloud-based SaaS that manages your organization's devices remotely.`,
+                    viewerLink: 'https://cerebra.co/'
+                }, {
                     image: 'images/pianoserver.png',
                     title: 'Pianoserver',
                     description: 'Full integration of Pandora into your computer with notifications, shortcuts and a web interface.',
@@ -163,8 +168,7 @@ export default {
                     image: 'images/dresscoderules.png',
                     title: 'DressCodeRules - Hydra',
                     description: 'An internal tool for DressCodeRules.com to aggregate product feeds to then be inserted into the WordPress site in a consistent format.',
-                    projectLink: 'https://bitbucket.org/dresscoderules/hydra/overview',
-                    viewerLink: 'http://imports.dresscoderules.com:333/hydra/#/'
+                    projectLink: 'https://bitbucket.org/dresscoderules/hydra/overview'
                 }, {
                     image: 'images/howwide.png',
                     title: 'How Wide Is It?',
@@ -197,7 +201,7 @@ export default {
             this.typerInstance.destroy()
         },
         components: {
-            "Full-Height": FullHeight
+            FullHeight
         },
         methods: {
             sendMessage() {
@@ -402,6 +406,10 @@ select:-webkit-autofill:focus {
     transform: translateY(6px);
 }
 
+.lighten-hover:hover {
+    background-color: #283593 !important;
+}
+
 .pull-up {
     position: relative;
     top: -40px;
@@ -416,5 +424,14 @@ select:-webkit-autofill:focus {
     .hotLinks .card__text {
         padding: 10px 0 !important;
     }
+}
+
+.card-popout-title {
+    position: relative;
+    max-width: 75%;
+    min-width: 250px;
+    top: -40px;
+    z-index: 1;
+    margin: 0 auto;
 }
 </style>
